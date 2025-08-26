@@ -1,158 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kumarov-Arts</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center fixed;
-      background-size: cover;
-      text-align: center;
-    }
-    h1 {
-      margin-top: 20px;
-      font-size: 2.5rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .gallery-item {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .gallery-item:hover {
-      transform: scale(1.05);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .caption {
-      padding: 10px;
-      font-size: 1rem;
-      background: rgba(0, 0, 0, 0.6);
-    }
-    .social {
-      margin: 40px 0 20px;
-      font-size: 1.2rem;
-    }
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 25px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .buttons a:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    /* Fullscreen modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      padding-top: 50px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.9);
-    }
-    .modal img {
-      margin: auto;
-      display: block;
-      max-width: 90%;
-      max-height: 80%;
-      animation: zoom 0.3s ease-in-out;
-    }
-    @keyframes zoom {
-      from {transform: scale(0.7);}
-      to {transform: scale(1);}
-    }
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 45px;
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.2rem; }
-      .caption { font-size: 0.9rem; }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kumarov-Arts</title>
+<style>
+  :root{
+    --card-w: 260px;
+    --gap: 20px;
+  }
+
+  /* базовые */
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#fff;
+    text-align:center;
+    background: url('https://images2.alphacoders.com/109/1091569.png') center / cover no-repeat fixed;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page {
+    max-width:1200px;
+    margin:0 auto;
+    padding:24px 16px 48px;
+  }
+
+  h1{ margin:0 0 8px; font-size:36px; font-weight:700; text-shadow:0 2px 6px rgba(0,0,0,.6) }
+  h2{ margin:0 0 18px; font-size:18px; font-weight:600; text-shadow:0 1px 4px rgba(0,0,0,.5) }
+
+  /* СЕТКА: на десктопе ровно 4 колонки фиксированной ширины, выровнено по центру */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, var(--card-w));
+    gap: var(--gap);
+    justify-content: center; /* центрируем блок карточек */
+    margin: 28px auto;
+  }
+
+  /* карточка — гарантированно одинакового визуального размера */
+  .card{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    width: var(--card-w);
+  }
+
+  /* квадратная область для картинки — все одинаковы */
+  .img-wrap{
+    width:100%;
+    aspect-ratio: 1 / 1; /* ровный квадрат */
+    overflow:hidden;
+    border-radius:12px;
+    background: rgba(0,0,0,0.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .img-wrap img{
+    width:100%;
+    height:100%;
+    object-fit: cover; /* одинаковый вид без растяжения */
+    display:block;
+  }
+
+  /* подпись фиксированной высоты, чтобы базовые линии совпадали */
+  .caption{
+    height:48px;
+    margin-top:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    background: rgba(0,0,0,0.38);
+    border-radius:8px;
+  }
+
+  /* соц блок */
+  .contact-title{ margin-top:28px; font-weight:700; }
+  .socials{ margin-top:12px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap }
+  .socials a{
+    padding:10px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#fff;
+    background: rgba(0,0,0,0.6);
+    font-weight:700;
+  }
+
+  /* МОДАЛКА полноэкранная (анимированная) */
+  .modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:1200;
+    background: rgba(0,0,0,0.9);
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .modal.open{ display:flex; animation: fadeIn .25s ease both; }
+  .modal img{
+    max-width: 96%;
+    max-height: 92%;
+    border-radius:10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    animation: zoomIn .28s ease both;
+  }
+  @keyframes fadeIn{ from {opacity:0} to {opacity:1} }
+  @keyframes zoomIn{ from {transform:scale(.86)} to {transform:scale(1)} }
+
+  /* кнопка закрыть (простая) */
+  .modal .close{
+    position:absolute;
+    top:20px;
+    right:22px;
+    font-size:34px;
+    color:#fff;
+    cursor:pointer;
+    font-weight:700;
+  }
+
+  /* Адаптив: на планшет/мобиль 2 или 1 колонка */
+  @media (max-width:1100px){
+    .gallery{ grid-template-columns: repeat(2, minmax(200px, 1fr)); }
+    :root{ --card-w: 300px; }
+  }
+  @media (max-width:520px){
+    .gallery{ grid-template-columns: 1fr; }
+    .card{ width:100%; max-width:420px; margin:0 auto; }
+    .caption{ height:44px; }
+  }
+</style>
 </head>
 <body>
+  <div class="page">
+    <h1>Kumarov-Arts</h1>
+    <h2>Нарисуем ваши фантазии и идеи !</h2>
 
-  <h1>Kumarov-Arts</h1>
-  <h2>Нарисуем ваши фантазии и идеи!</h2>
+    <section class="gallery" aria-label="Галерея работ">
+      <article class="card">
+        <div class="img-wrap"><img src="1.jpg" alt="Работа 1"></div>
+        <div class="caption">Работа 1</div>
+      </article>
 
-  <div class="gallery">
-    <div class="gallery-item" onclick="openModal('1.jpg')">
-      <img src="1.jpg" alt="Работа 1">
-      <div class="caption">Работа 1</div>
-    </div>
-    <div class="gallery-item" onclick="openModal('2.jpg')">
-      <img src="2.jpg" alt="Работа 2">
-      <div class="caption">Работа 2</div>
-    </div>
-    <div class="gallery-item" onclick="openModal('3.jpg')">
-      <img src="3.jpg" alt="Работа 3">
-      <div class="caption">Работа 3</div>
-    </div>
-    <div class="gallery-item" onclick="openModal('4.jpg')">
-      <img src="4.jpg" alt="Работа 4">
-      <div class="caption">Работа 4</div>
-    </div>
+      <article class="card">
+        <div class="img-wrap"><img src="2.jpg" alt="Работа 2"></div>
+        <div class="caption">Работа 2</div>
+      </article>
+
+      <article class="card">
+        <div class="img-wrap"><img src="3.jpg" alt="Работа 3"></div>
+        <div class="caption">Работа 3</div>
+      </article>
+
+      <article class="card">
+        <div class="img-wrap"><img src="4.jpg" alt="Работа 4"></div>
+        <div class="caption">Работа 4</div>
+      </article>
+    </section>
+
+    <div class="contact-title">Связаться с нами можно через соц. сети , будем вам рады !</div>
+    <nav class="socials" aria-label="Соцсети">
+      <a href="https://www.tiktok.com/@kumarov_arts3" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/kumarov_arts" target="_blank" rel="noopener">Instagram</a>
+    </nav>
   </div>
 
-  <div class="social">Связаться с нами можно через соц. сети, будем вам рады!</div>
-  <div class="buttons">
-    <a href="https://www.tiktok.com" target="_blank">TikTok</a>
-    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+  <!-- Модал -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true" onclick="closeModal()">
+    <span class="close" aria-hidden="true" onclick="closeModal()">&times;</span>
+    <img id="modalImg" src="" alt="Полноэкранный просмотр">
   </div>
 
-  <!-- Fullscreen modal -->
-  <div id="myModal" class="modal" onclick="closeModal()">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="">
-  </div>
+<script>
+  // Открытие модалки на клик по картинке
+  document.querySelectorAll('.img-wrap img').forEach(img=>{
+    img.addEventListener('click', (e)=>{
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = e.currentTarget.src;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      // запомним текущее изображение, чтобы переключать можно было в будущем
+      window._currentOpen = Array.from(document.querySelectorAll('.img-wrap img')).indexOf(e.currentTarget);
+    });
+  });
 
-  <script>
-    function openModal(src) {
-      document.getElementById("myModal").style.display = "block";
-      document.getElementById("modalImage").src = src;
-    }
-    function closeModal() {
-      document.getElementById("myModal").style.display = "none";
-    }
-  </script>
+  // Закрытие и Esc
+  function closeModal(){
+    const modal = document.getElementById('modal');
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.getElementById('modalImg').src = '';
+  }
+  document.addEventListener('keydown', (ev)=>{
+    if(ev.key === 'Escape') closeModal();
+  });
 
+  // предотвращаем всплытие при клике на изображение внутри модалки
+  document.getElementById('modalImg').addEventListener('click', (e)=> e.stopPropagation());
+</script>
 </body>
 </html>
