@@ -3,117 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kumarov-Arts</title>
+  <title>Kumarov‑Arts — галерея</title>
   <style>
-    :root{ --card-size:350px; --gap:20px; }
-    *{box-sizing:border-box}
+    /* Сброс */
+    *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
+
+    /* ФОН */
     body{
-      margin:0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      background: url('https://images2.alphacoders.com/109/1091569.png') center / cover no-repeat;
+      background-attachment: scroll; /* важно — чтобы на мобильных экранах не резало */
       color:#fff;
-      background: url('https://images2.alphacoders.com/109/1091569.png') center/cover no-repeat;
       -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       text-align:center;
-      padding-bottom:40px;
+      padding:20px 12px 48px;
     }
 
-    .wrap{ max-width:1280px; margin:0 auto; padding:18px; }
-    header{ padding:18px 8px 4px }
-    header h1{ margin:0; font-size:40px; font-weight:800; letter-spacing:0.4px }
-    header .slogan{ margin:6px 0 0; font-weight:700 }
+    header{max-width:1200px;margin:0 auto 18px}
+    header h1{font-size:40px;font-weight:700}
+    header .slogan{font-weight:700;margin-top:6px}
 
-    /* Сетка: фиксированный визуальный размер карточек, выравнивание по центру */
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(4, var(--card-size));
-      gap:var(--gap);
-      justify-content:center;
-      align-items:start;
-      margin:28px auto;
-      padding:0 12px;
+    /* Галерея: фиксированные карточки одинакового видимого размера */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,350px);justify-content:center;gap:20px;max-width:1280px;margin:18px auto}
+
+    .card{width:350px;display:flex;flex-direction:column;align-items:stretch}
+
+    /* контейнер изображения: гарантированно ровный квадрат */
+    .img-wrap{width:100%;height:350px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border:2px solid rgba(255,255,255,0.12)}
+
+    /* Изображение — полностью без искажений, заполняет контейнер по центру */
+    .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Подпись: одинаковая высота у всех карточек, выравнена по центру */
+    .caption{height:48px;display:flex;align-items:center;justify-content:center;margin-top:10px;font-weight:700}
+
+    /* Блок соцсетей */
+    .contact-title{font-weight:700;margin-top:22px}
+    .socials{display:flex;gap:14px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+    .socials a{padding:10px 20px;border-radius:12px;border:2px solid #fff;color:#fff;text-decoration:none;font-weight:700;background:rgba(255,255,255,0.06)}
+    .socials a:hover{background:rgba(255,255,255,0.18)}
+
+    /* Адаптация: уменьшаем карточки на узких экранах, но сохраняем 1:1 видимую область */
+    @media (max-width: 760px){
+      .gallery{grid-template-columns:repeat(auto-fit,260px)}
+      .card{width:260px}
+      .img-wrap{height:260px}
+      .caption{height:44px}
     }
-
-    /* Адаптив: уменьшаем количество колонок, но карточки остаются одного размера */
-    @media (max-width:1240px){ .gallery{ grid-template-columns: repeat(3, var(--card-size)); } }
-    @media (max-width:980px){ .gallery{ grid-template-columns: repeat(2, var(--card-size)); } }
-    @media (max-width:560px){
-      :root{ --card-size: calc(100vw - 48px); }
-      .gallery{ grid-template-columns: 1fr; }
+    @media (max-width: 360px){
+      header h1{font-size:28px}
+      header .slogan{font-size:14px}
     }
-
-    /* Карточка: фиксированный видимый размер, подгонка изображения внутри без искажений */
-    .card{
-      width:var(--card-size);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-    }
-
-    .img-wrap{
-      width:100%;
-      height:var(--card-size);
-      overflow:hidden;
-      border-radius:12px;
-      background:rgba(0,0,0,0.25);
-      display:flex; align-items:center; justify-content:center;
-      border:2px solid rgba(255,255,255,0.08);
-      box-shadow:0 8px 20px rgba(0,0,0,0.4);
-    }
-
-    /* Ключ: изображение занимает всю обёртку, но НЕ искажается; лишнее аккуратно обрезается */
-    .img-wrap img{
-      width:100%; height:100%; object-fit:cover; object-position:center center; display:block;
-    }
-
-    .caption{
-      height:44px; /* одинаковая высота подписи — выравнивает блоки по вертикали */
-      display:flex; align-items:center; justify-content:center;
-      font-weight:800; padding:0 6px; text-align:center; color:#fff;
-    }
-
-    .contact{ margin-top:14px; font-weight:700 }
-    .socials{ margin-top:14px; display:flex; gap:12px; justify-content:center }
-    .socials a{ padding:10px 18px; border-radius:12px; text-decoration:none; color:#fff; border:2px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.04); font-weight:700 }
-    .socials a:hover{ background:rgba(255,255,255,0.12) }
-
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>Kumarov-Arts</h1>
-      <div class="slogan">Нарисуем ваши фантазии и идеи!</div>
-    </header>
+  <header>
+    <h1>Kumarov‑Arts</h1>
+    <div class="slogan">Нарисуем ваши фантазии и идеи!</div>
+  </header>
 
-    <section class="gallery">
-      <article class="card">
-        <div class="img-wrap"><img src="1.jpg" alt="работа 1"></div>
-        <div class="caption">работа 1</div>
-      </article>
+  <main class="gallery" aria-label="Галерея работ">
+    <article class="card">
+      <div class="img-wrap"><img src="1.jpg" alt="работа 1"></div>
+      <div class="caption">работа 1</div>
+    </article>
 
-      <article class="card">
-        <div class="img-wrap"><img src="2.jpg" alt="работа 2"></div>
-        <div class="caption">работа 2</div>
-      </article>
+    <article class="card">
+      <div class="img-wrap"><img src="2.jpg" alt="работа 2"></div>
+      <div class="caption">работа 2</div>
+    </article>
 
-      <article class="card">
-        <div class="img-wrap"><img src="3.jpg" alt="работа 3"></div>
-        <div class="caption">работа 3</div>
-      </article>
+    <article class="card">
+      <div class="img-wrap"><img src="3.jpg" alt="работа 3"></div>
+      <div class="caption">работа 3</div>
+    </article>
 
-      <article class="card">
-        <div class="img-wrap"><img src="4.jpg" alt="работа 4"></div>
-        <div class="caption">работа 4</div>
-      </article>
-    </section>
+    <article class="card">
+      <div class="img-wrap"><img src="4.jpg" alt="работа 4"></div>
+      <div class="caption">работа 4</div>
+    </article>
+  </main>
 
-    <div class="contact">Связаться можно с нами через соц. сети</div>
-    <nav class="socials">
-      <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank" rel="noopener">Instagram</a>
-    </nav>
-  </div>
+  <div class="contact-title">Связаться можно с нами через соц. сети</div>
+  <nav class="socials" aria-label="Соцсети">
+    <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank" rel="noopener">Instagram</a>
+  </nav>
 </body>
 </html>
