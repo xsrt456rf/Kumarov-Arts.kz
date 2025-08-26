@@ -1,136 +1,174 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumarov-Arts</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            gap: 15px;
-        }
-        .gallery img {
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        .caption {
-            margin-top: 5px;
-            font-weight: bold;
-        }
-        .links {
-            margin-top: 30px;
-        }
-        .links a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 15px;
-            background-color: #000000aa;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-        .links a:hover {
-            background-color: #333333aa;
-        }
-        /* Стили модального окна */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.4s ease;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            animation: zoomIn 0.4s ease;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        @keyframes zoomIn {
-            from {transform: scale(0.7);}
-            to {transform: scale(1);}
-        }
-        .modal:target {
-            display: flex;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 40px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kumarov-Arts</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+
+    h1 {
+        margin-top: 20px;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 10px;
+    }
+
+    .gallery-item {
+        position: relative;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    .caption {
+        margin-top: 8px;
+        font-size: 1.1em;
+    }
+
+    .social {
+        margin-top: 40px;
+        font-size: 1.2em;
+    }
+
+    .buttons {
+        margin-top: 15px;
+    }
+
+    .buttons a {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 20px;
+        background: #ff0055;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+        background: #cc0044;
+    }
+
+    /* Модальное окно для полноэкранного просмотра */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        border-radius: 10px;
+        animation: zoom 0.3s;
+    }
+
+    @keyframes zoom {
+        from {transform:scale(0)}
+        to {transform:scale(1)}
+    }
+
+    .close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+        h1 { font-size: 2em; }
+        h2 { font-size: 1.2em; }
+    }
+</style>
 </head>
 <body>
-    <h1>Kumarov-Arts</h1>
-    <h2>Нарисуем ваши фантазии и идеи!</h2>
 
-    <div class="gallery">
-        <a href="#img1"><img src="1.jpg" alt="Работа 1"></a>
-        <a href="#img2"><img src="2.jpg" alt="Работа 2"></a>
-        <a href="#img3"><img src="3.jpg" alt="Работа 3"></a>
-        <a href="#img4"><img src="4.jpg" alt="Работа 4"></a>
-    </div>
-    <div class="gallery">
+<h1>Kumarov-Arts</h1>
+<h2>Нарисуем ваши фантазии и идеи !</h2>
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="1.jpg" alt="Работа 1" onclick="openModal(this)">
         <div class="caption">Работа 1</div>
+    </div>
+    <div class="gallery-item">
+        <img src="2.jpg" alt="Работа 2" onclick="openModal(this)">
         <div class="caption">Работа 2</div>
+    </div>
+    <div class="gallery-item">
+        <img src="3.jpg" alt="Работа 3" onclick="openModal(this)">
         <div class="caption">Работа 3</div>
+    </div>
+    <div class="gallery-item">
+        <img src="4.jpg" alt="Работа 4" onclick="openModal(this)">
         <div class="caption">Работа 4</div>
     </div>
+</div>
 
-    <h3>Связаться с нами можно через соц. сети, будем вам рады!</h3>
-    <div class="links">
+<div class="social">
+    Связаться с нами можно через соц. сети , будем вам рады !
+    <div class="buttons">
         <a href="https://tiktok.com" target="_blank">TikTok</a>
         <a href="https://instagram.com" target="_blank">Instagram</a>
     </div>
+</div>
 
-    <!-- Модальные окна -->
-    <div id="img1" class="modal">
-        <a href="#" class="close">&times;</a>
-        <img src="1.jpg" alt="">
-    </div>
-    <div id="img2" class="modal">
-        <a href="#" class="close">&times;</a>
-        <img src="2.jpg" alt="">
-    </div>
-    <div id="img3" class="modal">
-        <a href="#" class="close">&times;</a>
-        <img src="3.jpg" alt="">
-    </div>
-    <div id="img4" class="modal">
-        <a href="#" class="close">&times;</a>
-        <img src="4.jpg" alt="">
-    </div>
+<!-- Модальное окно -->
+<div id="myModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+function openModal(img) {
+    document.getElementById("myModal").style.display = "block";
+    document.getElementById("modalImg").src = img.src;
+}
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+</script>
+
 </body>
 </html>
