@@ -1,99 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Kumarov Arts</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center fixed;
-            background-size: cover; /* Заполнение всего экрана */
-        }
-        .container {
-            text-align: center;
-            color: white;
-            padding: 20px;
-        }
-        .container h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .container h2 {
-            margin: 10px 0 30px 0;
-            font-weight: bold;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .work {
-            text-align: center;
-        }
-        .work img {
-            width: 350px;
-            height: auto; /* сохраняем пропорции */
-            border-radius: 10px;
-        }
-        .work p {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .socials {
-            margin-top: 40px;
-        }
-        .socials p {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .socials a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            border: 2px solid white;
-            border-radius: 10px;
-            color: white;
-            text-decoration: none;
-            background: rgba(255, 255, 255, 0.1); /* прозрачные кнопки */
-            transition: background 0.3s ease;
-        }
-        .socials a:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumarov-Arts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center fixed;
+      background-size: cover; /* полностью растягивает фон */
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+    header h1 {
+      margin: 0;
+    }
+    header p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .gallery-item {
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 350px;
+      height: 350px;
+      object-fit: contain; /* убирает искажения, полностью вписывает картинку */
+      background-color: white; /* подложка, если у картинки прозрачный фон */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .gallery-item p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+    .social {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .social p {
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+      margin-bottom: 10px;
+    }
+    .social a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      border: 2px solid white;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      background-color: rgba(255,255,255,0.2);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .social a:hover {
+      background-color: rgba(255,255,255,0.4);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Kumarov-Arts</h1>
-        <h2>Нарисуем ваши фантазии и идеи!</h2>
+  <header>
+    <h1>Kumarov-Arts</h1>
+    <p>Нарисуем ваши фантазии и идеи!</p>
+  </header>
 
-        <div class="gallery">
-            <div class="work">
-                <img src="1.jpg" alt="Работа 1">
-                <p>Работа 1</p>
-            </div>
-            <div class="work">
-                <img src="2.jpg" alt="Работа 2">
-                <p>Работа 2</p>
-            </div>
-            <div class="work">
-                <img src="3.jpg" alt="Работа 3">
-                <p>Работа 3</p>
-            </div>
-            <div class="work">
-                <img src="4.jpg" alt="Работа 4">
-                <p>Работа 4</p>
-            </div>
-        </div>
-
-        <div class="socials">
-            <p>Связаться можно с нами через соц. сети</p>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-        </div>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="1.jpg" alt="Работа 1">
+      <p>Работа 1</p>
     </div>
+    <div class="gallery-item">
+      <img src="2.jpg" alt="Работа 2">
+      <p>Работа 2</p>
+    </div>
+    <div class="gallery-item">
+      <img src="3.jpg" alt="Работа 3">
+      <p>Работа 3</p>
+    </div>
+    <div class="gallery-item">
+      <img src="4.jpg" alt="Работа 4">
+      <p>Работа 4</p>
+    </div>
+  </div>
+
+  <div class="social">
+    <p>Связаться можно с нами через соц. сети</p>
+    <a href="https://tiktok.com" target="_blank">TikTok</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+  </div>
 </body>
 </html>
