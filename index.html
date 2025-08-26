@@ -2,139 +2,142 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Наши работы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center;
       background-size: cover;
-    }
-    h1, h2 {
-      text-align: center;
       color: white;
-      text-shadow: 1px 1px 3px black;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 20px;
     }
     .gallery {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      padding: 20px;
+      margin: 30px auto;
+      max-width: 800px;
     }
-    .gallery-item {
-      width: 300px;
-      height: 300px;
-      background: #111;
+    .item {
+      width: 350px;
+      height: 350px;
+      background: rgba(255,255,255,0.1);
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      overflow: hidden;
     }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
+    .item img {
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
       cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .item img:hover {
+      transform: scale(1.05);
     }
     .caption {
-      margin-top: 5px;
       font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 2px black;
+      margin-bottom: 10px;
     }
-    .links {
-      text-align: center;
+    .social {
       margin: 20px 0;
     }
-    .links a {
-      margin: 0 10px;
-      color: white;
+    .social p {
       font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      border: 2px solid white;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.1);
+      color: white;
       text-decoration: none;
-    }
-    .contact {
-      text-align: center;
       font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 3px black;
+      transition: background 0.3s;
     }
+    .btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
     /* Модальное окно */
     .modal {
       display: none;
       position: fixed;
       z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.9);
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
     }
     .modal img {
-      display: block;
       max-width: 90%;
       max-height: 90%;
-      margin: 5% auto;
-    }
-    .modal:target {
-      display: block;
-    }
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      text-decoration: none;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
+
   <h1>Наши работы</h1>
-
+  
   <div class="gallery">
-    <div class="gallery-item">
-      <a href="#img1"><img src="1.jpg" alt="Работа 1"></a>
+    <div class="item">
       <div class="caption">Работа 1</div>
+      <img src="1.jpg" alt="Работа 1" onclick="openModal(this.src)">
     </div>
-    <div class="gallery-item">
-      <a href="#img2"><img src="2.jpg" alt="Работа 2"></a>
+    <div class="item">
       <div class="caption">Работа 2</div>
+      <img src="2.jpg" alt="Работа 2" onclick="openModal(this.src)">
     </div>
-    <div class="gallery-item">
-      <a href="#img3"><img src="3.jpg" alt="Работа 3"></a>
+    <div class="item">
       <div class="caption">Работа 3</div>
+      <img src="3.jpg" alt="Работа 3" onclick="openModal(this.src)">
     </div>
-    <div class="gallery-item">
-      <a href="#img4"><img src="4.jpg" alt="Работа 4"></a>
+    <div class="item">
       <div class="caption">Работа 4</div>
+      <img src="4.jpg" alt="Работа 4" onclick="openModal(this.src)">
     </div>
   </div>
 
-  <div class="contact">Связаться можно с нами через соц. сети</div>
-  <div class="links">
-    <a href="#">Instagram</a>
-    <a href="#">TikTok</a>
-    <a href="#">VK</a>
+  <div class="social">
+    <p>Связаться можно с нами через соц. сети</p>
+    <a href="https://tiktok.com" class="btn" target="_blank">TikTok</a>
+    <a href="https://instagram.com" class="btn" target="_blank">Instagram</a>
   </div>
 
-  <!-- Модальные окна для каждой картинки -->
-  <div id="img1" class="modal">
-    <a href="#" class="close">&times;</a>
-    <img src="1.jpg" alt="Работа 1">
+  <!-- Модальное окно для полноэкранного просмотра -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <img id="modal-img" src="" alt="">
   </div>
-  <div id="img2" class="modal">
-    <a href="#" class="close">&times;</a>
-    <img src="2.jpg" alt="Работа 2">
-  </div>
-  <div id="img3" class="modal">
-    <a href="#" class="close">&times;</a>
-    <img src="3.jpg" alt="Работа 3">
-  </div>
-  <div id="img4" class="modal">
-    <a href="#" class="close">&times;</a>
-    <img src="4.jpg" alt="Работа 4">
-  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modal-img').src = src;
+      document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
+
 </body>
 </html>
