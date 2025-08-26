@@ -1,111 +1,140 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kumarov‑Arts</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наши работы</title>
   <style>
-    :root {
-      --max-card: 350px; /* максимальный размер карточки */
-      --gap: 22px;
-    }
-    /* ФОН: без "fixed", чтобы на телефонах не обрезался */
-    html, body { height: 100%; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #fff;
+      background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center;
+      background-size: cover;
+    }
+    h1, h2 {
       text-align: center;
-      background: #000 url('https://images2.alphacoders.com/109/1091569.png') center / cover no-repeat;
+      color: white;
+      text-shadow: 1px 1px 3px black;
     }
-
-    /* Заголовок + слоган */
-    header { padding: 20px 12px 10px; }
-    header h1 { margin: 0 0 8px; font-size: 42px; font-weight: 700; }
-    header .slogan { margin: 0; font-size: 20px; font-weight: 700; }
-
-    /* Галерея */
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: var(--gap);
-      max-width: 1200px;
-      margin: 28px auto 36px;
-      padding: 0 14px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
     }
-
-    /* Карточка фиксированного видимого размера (все одинаковые) */
-    .card {
+    .gallery-item {
+      width: 300px;
+      height: 300px;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gallery-item img {
       width: 100%;
-      max-width: var(--max-card);
-      aspect-ratio: 1 / 1;            /* квадрат без зависимости от содержимого */
-      margin: 0 auto;
-      border: 2px solid rgba(255,255,255,.35);
-      border-radius: 12px;
-      background: rgba(0,0,0,.35);     /* лёгкая подложка под разные пропорции */
-      display: grid;                    /* центрируем изображение без искажений */
-      place-items: center;
-      overflow: hidden;                 /* на всякий случай скрываем выступы */
-      box-shadow: 0 8px 24px rgba(0,0,0,.35);
+      height: 100%;
+      object-fit: contain;
+      cursor: pointer;
     }
-
-    /* Изображение: ПОЛНОСТЬЮ БЕЗ ИСКАЖЕНИЙ */
-    .card img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;   /* сохраняем исходные пропорции */
-      height: auto;  /* и не растягиваем по одной оси */
+    .caption {
+      margin-top: 5px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+    .links {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .links a {
+      margin: 0 10px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .contact {
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal img {
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin: 5% auto;
+    }
+    .modal:target {
       display: block;
     }
-
-    .caption { margin: 10px 0 0; font-weight: 700; }
-
-    /* Блок соцсетей */
-    .contact-title { font-weight: 700; font-size: 18px; margin: 8px 0 12px; }
-    .socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; padding-bottom: 36px; }
-    .socials a {
-      display: inline-block;
-      padding: 10px 20px;
-      border: 2px solid #fff;
-      border-radius: 12px;
-      color: #fff; text-decoration: none; font-weight: 700;
-      background: rgba(255,255,255,.08); /* прозрачные кнопки */
-      transition: background .25s ease, transform .25s ease;
-    }
-    .socials a:hover { background: rgba(255,255,255,.22); transform: translateY(-1px); }
-
-    /* Мелкая адаптация для совсем узких экранов */
-    @media (max-width: 360px) {
-      header h1 { font-size: 32px; }
-      header .slogan { font-size: 18px; }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kumarov‑Arts</h1>
-    <p class="slogan">Нарисуем ваши фантазии и идеи!</p>
-  </header>
+  <h1>Наши работы</h1>
 
-  <section class="gallery">
-    <figure class="card">
-      <img src="1.jpg" alt="работа 1" />
-    </figure>
-    <figure class="card">
-      <img src="2.jpg" alt="работа 2" />
-    </figure>
-    <figure class="card">
-      <img src="3.jpg" alt="работа 3" />
-    </figure>
-    <figure class="card">
-      <img src="4.jpg" alt="работа 4" />
-    </figure>
-  </section>
+  <div class="gallery">
+    <div class="gallery-item">
+      <a href="#img1"><img src="1.jpg" alt="Работа 1"></a>
+      <div class="caption">Работа 1</div>
+    </div>
+    <div class="gallery-item">
+      <a href="#img2"><img src="2.jpg" alt="Работа 2"></a>
+      <div class="caption">Работа 2</div>
+    </div>
+    <div class="gallery-item">
+      <a href="#img3"><img src="3.jpg" alt="Работа 3"></a>
+      <div class="caption">Работа 3</div>
+    </div>
+    <div class="gallery-item">
+      <a href="#img4"><img src="4.jpg" alt="Работа 4"></a>
+      <div class="caption">Работа 4</div>
+    </div>
+  </div>
 
-  <p class="contact-title">Связаться можно с нами через соц. сети</p>
-  <nav class="socials">
-    <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
-    <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank" rel="noopener">Instagram</a>
-  </nav>
+  <div class="contact">Связаться можно с нами через соц. сети</div>
+  <div class="links">
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">VK</a>
+  </div>
+
+  <!-- Модальные окна для каждой картинки -->
+  <div id="img1" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="1.jpg" alt="Работа 1">
+  </div>
+  <div id="img2" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="2.jpg" alt="Работа 2">
+  </div>
+  <div id="img3" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="3.jpg" alt="Работа 3">
+  </div>
+  <div id="img4" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="4.jpg" alt="Работа 4">
+  </div>
 </body>
 </html>
