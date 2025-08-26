@@ -3,61 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumarov Arts</title>
+    <title>Kumarov-Arts</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
+            background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center fixed;
+            background-size: cover;
             color: white;
             text-align: center;
-            background: url('3.png') no-repeat center center fixed;
-            background-size: cover; /* важное исправление */
         }
-        h1 {
-            font-size: 2.5em;
-            margin-top: 20px;
+        header {
+            padding: 20px;
+            font-size: 2em;
             font-weight: bold;
         }
-        h2 {
+        .slogan {
+            font-weight: bold;
             font-size: 1.2em;
-            font-weight: bold;
-            margin-top: -10px;
+            margin-bottom: 20px;
         }
         .gallery {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            margin: 40px 0;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
         }
-        .item {
-            margin: 15px;
+        .gallery-item {
+            width: 350px;
             text-align: center;
         }
-        .item img {
-            width: 350px;
-            height: 350px;
-            object-fit: contain; /* чтобы картинки не искажались */
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
             border: 2px solid white;
             border-radius: 10px;
         }
-        .social-text {
+        .gallery-item p {
             font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .social-links {
             margin-top: 10px;
         }
-        .social-links a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            border: 2px solid white;
-            border-radius: 25px;
-            text-decoration: none;
-            color: white;
+        .contact-text {
             font-weight: bold;
-            background: rgba(255,255,255,0.1); /* прозрачные кнопки */
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px;
+        }
+        .social-links a {
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.1);
+            font-weight: bold;
             transition: background 0.3s;
         }
         .social-links a:hover {
@@ -66,32 +72,30 @@
     </style>
 </head>
 <body>
-    <h1>Kumarov-Arts</h1>
-    <h2>Нарисуем ваши фантазии и идеи!</h2>
-
+    <header>Kumarov-Arts</header>
+    <div class="slogan">Нарисуем ваши фантазии и идеи!</div>
     <div class="gallery">
-        <div class="item">
-            <img src="1.jpg" alt="Работа 1">
-            <p><b>Работа 1</b></p>
+        <div class="gallery-item">
+            <img src="1.jpg" alt="работа 1">
+            <p>работа 1</p>
         </div>
-        <div class="item">
-            <img src="2.jpg" alt="Работа 2">
-            <p><b>Работа 2</b></p>
+        <div class="gallery-item">
+            <img src="2.jpg" alt="работа 2">
+            <p>работа 2</p>
         </div>
-        <div class="item">
-            <img src="3.jpg" alt="Работа 3">
-            <p><b>Работа 3</b></p>
+        <div class="gallery-item">
+            <img src="3.jpg" alt="работа 3">
+            <p>работа 3</p>
         </div>
-        <div class="item">
-            <img src="4.jpg" alt="Работа 4">
-            <p><b>Работа 4</b></p>
+        <div class="gallery-item">
+            <img src="4.jpg" alt="работа 4">
+            <p>работа 4</p>
         </div>
     </div>
-
-    <p class="social-text">Связаться можно с нами через соц. сети</p>
+    <div class="contact-text">Связаться можно с нами через соц. сети</div>
     <div class="social-links">
-        <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank">Instagram</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
     </div>
 </body>
 </html>
