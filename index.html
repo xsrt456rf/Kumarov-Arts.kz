@@ -1,95 +1,141 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kumarov‑Arts — галерея</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наши работы</title>
   <style>
-    /* Сброс */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-
-    /* ФОН */
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      background: url('https://images2.alphacoders.com/109/1091569.png') center / cover no-repeat;
-      background-attachment: scroll; /* важно — чтобы на мобильных экранах не резало */
-      color:#fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      text-align:center;
-      padding:20px 12px 48px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images2.alphacoders.com/109/1091569.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
     }
-
-    header{max-width:1200px;margin:0 auto 18px}
-    header h1{font-size:40px;font-weight:700}
-    header .slogan{font-weight:700;margin-top:6px}
-
-    /* Галерея: фиксированные карточки одинакового видимого размера */
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,350px);justify-content:center;gap:20px;max-width:1280px;margin:18px auto}
-
-    .card{width:350px;display:flex;flex-direction:column;align-items:stretch}
-
-    /* контейнер изображения: гарантированно ровный квадрат */
-    .img-wrap{width:100%;height:350px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border:2px solid rgba(255,255,255,0.12)}
-
-    /* Изображение — полностью без искажений, заполняет контейнер по центру */
-    .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* Подпись: одинаковая высота у всех карточек, выравнена по центру */
-    .caption{height:48px;display:flex;align-items:center;justify-content:center;margin-top:10px;font-weight:700}
-
-    /* Блок соцсетей */
-    .contact-title{font-weight:700;margin-top:22px}
-    .socials{display:flex;gap:14px;justify-content:center;margin-top:10px;flex-wrap:wrap}
-    .socials a{padding:10px 20px;border-radius:12px;border:2px solid #fff;color:#fff;text-decoration:none;font-weight:700;background:rgba(255,255,255,0.06)}
-    .socials a:hover{background:rgba(255,255,255,0.18)}
-
-    /* Адаптация: уменьшаем карточки на узких экранах, но сохраняем 1:1 видимую область */
-    @media (max-width: 760px){
-      .gallery{grid-template-columns:repeat(auto-fit,260px)}
-      .card{width:260px}
-      .img-wrap{height:260px}
-      .caption{height:44px}
+    h1 {
+      margin-top: 20px;
     }
-    @media (max-width: 360px){
-      header h1{font-size:28px}
-      header .slogan{font-size:14px}
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1200px;
+    }
+    .gallery-item {
+      flex: 1 1 250px;
+      max-width: 250px;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+    }
+    .caption {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    .socials {
+      margin: 30px 0;
+    }
+    .socials p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .socials a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+    /* Fullscreen modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    @media(max-width:600px){
+      .gallery{
+        flex-direction: column;
+        align-items: center;
+      }
+      .gallery-item{
+        max-width: 80%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kumarov‑Arts</h1>
-    <div class="slogan">Нарисуем ваши фантазии и идеи!</div>
-  </header>
 
-  <main class="gallery" aria-label="Галерея работ">
-    <article class="card">
-      <div class="img-wrap"><img src="1.jpg" alt="работа 1"></div>
-      <div class="caption">работа 1</div>
-    </article>
+  <h1>Наши работы</h1>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="1.jpg" alt="Работа 1" onclick="openModal(this)">
+      <div class="caption">Работа 1</div>
+    </div>
+    <div class="gallery-item">
+      <img src="2.jpg" alt="Работа 2" onclick="openModal(this)">
+      <div class="caption">Работа 2</div>
+    </div>
+    <div class="gallery-item">
+      <img src="3.jpg" alt="Работа 3" onclick="openModal(this)">
+      <div class="caption">Работа 3</div>
+    </div>
+    <div class="gallery-item">
+      <img src="4.jpg" alt="Работа 4" onclick="openModal(this)">
+      <div class="caption">Работа 4</div>
+    </div>
+  </div>
 
-    <article class="card">
-      <div class="img-wrap"><img src="2.jpg" alt="работа 2"></div>
-      <div class="caption">работа 2</div>
-    </article>
+  <div class="socials">
+    <p>Связаться можно с нами через соц. сети</p>
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">VK</a>
+  </div>
 
-    <article class="card">
-      <div class="img-wrap"><img src="3.jpg" alt="работа 3"></div>
-      <div class="caption">работа 3</div>
-    </article>
+  <!-- Modal for fullscreen -->
+  <div id="imgModal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="fullImg">
+  </div>
 
-    <article class="card">
-      <div class="img-wrap"><img src="4.jpg" alt="работа 4"></div>
-      <div class="caption">работа 4</div>
-    </article>
-  </main>
+  <script>
+    function openModal(imgElement) {
+      document.getElementById("imgModal").style.display = "block";
+      document.getElementById("fullImg").src = imgElement.src;
+    }
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
 
-  <div class="contact-title">Связаться можно с нами через соц. сети</div>
-  <nav class="socials" aria-label="Соцсети">
-    <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
-    <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank" rel="noopener">Instagram</a>
-  </nav>
 </body>
 </html>
