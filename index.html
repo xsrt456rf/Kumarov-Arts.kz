@@ -1,104 +1,97 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Kumarov Arts</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('3.png') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 20px 0;
-      font-size: 48px;
-      font-weight: bold;
-    }
-    header p {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 5px 0 0 0;
-    }
-    .gallery {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-    .gallery-item {
-      width: 350px;
-    }
-    .gallery-item img {
-      width: 350px;
-      height: 350px;
-      object-fit: cover; /* гарантирует отсутствие искажений */
-      border: 2px solid white;
-      border-radius: 10px;
-      display: block;
-    }
-    .gallery-item p {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .social-title {
-      margin-top: 40px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .social-links {
-      margin: 10px 0 40px 0;
-    }
-    .social-links a {
-      display: inline-block;
-      margin: 0 10px;
-      padding: 10px 20px;
-      border: 2px solid white;
-      border-radius: 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      background-color: rgba(255,255,255,0.1);
-      transition: background 0.3s;
-    }
-    .social-links a:hover {
-      background-color: rgba(255,255,255,0.3);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumarov Arts</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            background: url('3.png') no-repeat center center fixed;
+            background-size: cover; /* важное исправление */
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: -10px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        .item {
+            margin: 15px;
+            text-align: center;
+        }
+        .item img {
+            width: 350px;
+            height: 350px;
+            object-fit: contain; /* чтобы картинки не искажались */
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+        .social-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border: 2px solid white;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background: rgba(255,255,255,0.1); /* прозрачные кнопки */
+            transition: background 0.3s;
+        }
+        .social-links a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+    </style>
 </head>
 <body>
+    <h1>Kumarov-Arts</h1>
+    <h2>Нарисуем ваши фантазии и идеи!</h2>
 
-<header>
-  kumarov-arts
-  <p>Нарисуем ваши фантазии и идеи !</p>
-</header>
+    <div class="gallery">
+        <div class="item">
+            <img src="1.jpg" alt="Работа 1">
+            <p><b>Работа 1</b></p>
+        </div>
+        <div class="item">
+            <img src="2.jpg" alt="Работа 2">
+            <p><b>Работа 2</b></p>
+        </div>
+        <div class="item">
+            <img src="3.jpg" alt="Работа 3">
+            <p><b>Работа 3</b></p>
+        </div>
+        <div class="item">
+            <img src="4.jpg" alt="Работа 4">
+            <p><b>Работа 4</b></p>
+        </div>
+    </div>
 
-<div class="gallery">
-  <div class="gallery-item">
-    <img src="1.jpg" alt="работа 1">
-    <p>работа 1</p>
-  </div>
-  <div class="gallery-item">
-    <img src="2.jpg" alt="работа 2">
-    <p>работа 2</p>
-  </div>
-  <div class="gallery-item">
-    <img src="3.jpg" alt="работа 3">
-    <p>работа 3</p>
-  </div>
-  <div class="gallery-item">
-    <img src="4.jpg" alt="работа 4">
-    <p>работа 4</p>
-  </div>
-</div>
-
-<p class="social-title">Связаться можно с нами через соц. сети</p>
-<div class="social-links">
-  <a href="https://www.tiktok.com/@kumarov_arts" target="_blank">TikTok</a>
-  <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank">Instagram</a>
-</div>
-
+    <p class="social-text">Связаться можно с нами через соц. сети</p>
+    <div class="social-links">
+        <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank">Instagram</a>
+    </div>
 </body>
 </html>
