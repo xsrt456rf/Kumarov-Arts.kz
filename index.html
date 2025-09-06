@@ -4,6 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kumarov-Arts</title>
+</head>
+<body>
+
+  <h1>Kumarov-Arts</h1>
+  <h2>Нарисуем ваши фантазии и идеи!</h2>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="1.jpg" alt="Работа 1" onclick="openModal(this)">
+      <div class="caption">Работа 1</div>
+    </div>
+    <div class="gallery-item">
+      <img src="2.jpg" alt="Работа 2" onclick="openModal(this)">
+      <div class="caption">Работа 2</div>
+    </div>
+    <div class="gallery-item">
+      <img src="3.jpg" alt="Работа 3" onclick="openModal(this)">
+      <div class="caption">Работа 3</div>
+    </div>
+    <div class="gallery-item">
+      <img src="4.jpg" alt="Работа 4" onclick="openModal(this)">
+      <div class="caption">Работа 4</div>
+    </div>
+     <div class="gallery-item">
+      <img src="6.jpg" alt="Работа 5 " onclick="openModal(this)">
+      <div class="caption">Работа 5</div>
+  </div>
+<div class="gallery-item">
+      <img src="7.jpg" alt="Работа 6 " onclick="openModal(this)">
+      <div class="caption">Работа 6</div>
+      </div>
+  <div class="gallery-item">
+      <img src="8.jpg" alt="Работа 7 " onclick="openModal(this)">
+      <div class="caption">Работа 7</div>
+ </div>
+
+
+
+
+
+  <div class="social-section">
+    <p>Связаться с нами можно через соц. сети, будем вам рады!</p>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" onclick="closeModal()">
+    <img id="modalImg" src="">
+  </div>
+
+  <script>
+    function openModal(imgElement) {
+      document.getElementById('modal').style.display = 'flex';
+      document.getElementById('modalImg').src = imgElement.src;
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -93,52 +155,6 @@
       border-radius: 10px;
     }
   </style>
-</head>
-<body>
-
-  <h1>Kumarov-Arts</h1>
-  <h2>Нарисуем ваши фантазии и идеи!</h2>
-
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="1.jpg" alt="Работа 1" onclick="openModal(this)">
-      <div class="caption">Работа 1</div>
-    </div>
-    <div class="gallery-item">
-      <img src="2.jpg" alt="Работа 2" onclick="openModal(this)">
-      <div class="caption">Работа 2</div>
-    </div>
-    <div class="gallery-item">
-      <img src="3.jpg" alt="Работа 3" onclick="openModal(this)">
-      <div class="caption">Работа 3</div>
-    </div>
-    <div class="gallery-item">
-      <img src="4.jpg" alt="Работа 4" onclick="openModal(this)">
-      <div class="caption">Работа 4</div>
-    </div>
-  </div>
-
-  <div class="social-section">
-    <p>Связаться с нами можно через соц. сети, будем вам рады!</p>
-    <div class="social-links">
-      <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.instagram.com/kumarov_arts?utm_source=ig_web_button_share_sheet&igsh=am1jajhnZDc3Yjhp" target="_blank" rel="noopener">Instagram</a>
-    </div>
-  </div>
-
-  <div id="modal" class="modal" onclick="closeModal()">
-    <img id="modalImg" src="">
-  </div>
-
-  <script>
-    function openModal(imgElement) {
-      document.getElementById('modal').style.display = 'flex';
-      document.getElementById('modalImg').src = imgElement.src;
-    }
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-  </script>
 
 </body>
 </html>
