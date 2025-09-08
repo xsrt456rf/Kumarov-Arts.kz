@@ -45,7 +45,7 @@
 
 
   <div class="social-section">
-    <p>Не забудь кликнуть на изображение чтобы посмотреть его на полный экран</p>
+    <p>Не забудь кликнуть на изображение чтобы посмотреть их на полным экране</p>
     <p>Связаться с нами можно через соц. сети, будем вам рады!</p>
     <div class="social-links">
       <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
@@ -76,12 +76,11 @@
 
   <style>
 :root {
-  --tilda-blue: #3b82f6; /* основной синий */
-  --tilda-bg-dark: #0f172a; /* глубокий фон */
-  --tilda-text: #f8fafc; /* светлый текст */
+  --tilda-blue: #3b82f6;
+  --tilda-bg-dark: #0f172a;
+  --tilda-text: #f8fafc;
 }
 
-/* Общие */
 body {
   margin: 0;
   padding: 0;
@@ -94,7 +93,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Заголовки */
 h1 {
   margin-top: 40px;
   font-size: 3em;
@@ -109,7 +107,6 @@ h2 {
   color: #cbd5e1;
 }
 
-/* Галерея */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -132,8 +129,8 @@ h2 {
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  cursor: pointer;
 
-  /* плавное появление */
   opacity: 0;
   transform: scale(0.95);
   animation: fadeInUp 1s ease forwards;
@@ -143,25 +140,12 @@ h2 {
   box-shadow: 0 12px 28px rgba(59,130,246,0.6);
 }
 
-/* Анимация появления */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
 .caption {
   margin-top: 12px;
   font-size: 1.1em;
   color: #e2e8f0;
 }
 
-/* Соцсети */
 .social-section {
   margin-top: 60px;
 }
@@ -186,7 +170,6 @@ h2 {
   transform: translateY(-3px);
 }
 
-/* Модальное окно */
 .modal {
   display: none;
   position: fixed;
@@ -195,12 +178,36 @@ h2 {
   background-color: rgba(15,23,42,0.95);
   align-items: center;
   justify-content: center;
+  animation: modalFade 0.5s ease forwards;
 }
 .modal img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 14px;
   box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+  transform: scale(0.8);
+  animation: modalZoom 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalZoom {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 </style>
 
