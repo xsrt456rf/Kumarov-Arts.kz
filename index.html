@@ -3,46 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kumarov-Arts</title>
+  
+  <title>Kumarov-Arts — Художественные работы на заказ</title>
+  
+  <!-- SEO мета-теги -->
+  <meta name="description" content="Kumarov-Arts — уникальные художественные работы по вашим идеям и фантазиям. Галерея, услуги на заказ, контакт через Instagram и TikTok.">
+  <meta name="keywords" content="Kumarov-Arts, рисунки на заказ, цифровое искусство, арт галерея, художник, иллюстрации, творчество, TikTok, Instagram">
+  <meta name="author" content="Kumarov-Arts">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph для соцсетей -->
+  <meta property="og:title" content="Kumarov-Arts — художественные работы на заказ">
+  <meta property="og:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Связь через Instagram и TikTok.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://твойдомен.ру">
+  <meta property="og:image" content="https://твойдомен.ру/preview.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kumarov-Arts — художественные работы на заказ">
+  <meta name="twitter:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Связь через Instagram и TikTok.">
+  <meta name="twitter:image" content="https://твойдомен.ру/preview.jpg">
+  
+  <!-- Микроразметка (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ArtGallery",
+    "name": "Kumarov-Arts",
+    "description": "Уникальные художественные работы по вашим идеям",
+    "url": "https://твойдомен.ру",
+    "sameAs": [
+      "https://www.instagram.com/kumarov_arts",
+      "https://www.tiktok.com/@kumarov_arts3"
+    ],
+    "image": [
+      "https://твойдомен.ру/1.jpg",
+      "https://твойдомен.ру/2.jpg",
+      "https://твойдомен.ру/3.jpg"
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <h1>Kumarov-Arts</h1>
-  <h2>Нарисуем ваши фантазии и идеи!</h2>
+  <h1>Kumarov-Arts — Художественные работы на заказ</h1>
+  <h2>Создаём уникальные иллюстрации по вашим идеям и фантазиям</h2>
 
   <div class="gallery">
     <div class="gallery-item">
-      <img src="1.jpg" alt="Работа 1" onclick="openModal(this)">
+      <img src="1.jpg" alt="Цифровая иллюстрация Работа 1 от Kumarov-Arts" onclick="openModal(this)">
       <div class="caption">Работа 1</div>
     </div>
     <div class="gallery-item">
-      <img src="2.jpg" alt="Работа 2" onclick="openModal(this)">
+      <img src="2.jpg" alt="Цифровая иллюстрация Работа 2 от Kumarov-Arts" onclick="openModal(this)">
       <div class="caption">Работа 2</div>
     </div>
     <div class="gallery-item">
-      <img src="3.jpg" alt="Работа 3" onclick="openModal(this)">
+      <img src="3.jpg" alt="Цифровая иллюстрация Работа 3 от Kumarov-Arts" onclick="openModal(this)">
       <div class="caption">Работа 3</div>
     </div>
     <div class="gallery-item">
-      <img src="4.jpg" alt="Работа 4" onclick="openModal(this)">
+      <img src="4.jpg" alt="Цифровая иллюстрация Работа 4 от Kumarov-Arts" onclick="openModal(this)">
       <div class="caption">Работа 4</div>
     </div>
     <div class="gallery-item">
-      <img src="6.jpg" alt="Работа 5" onclick="openModal(this)">
+      <img src="6.jpg" alt="Цифровая иллюстрация Работа 5 от Kumarov-Arts" onclick="openModal(this)">
       <div class="caption">Работа 5</div>
     </div>
     <div class="gallery-item">
-      <img src="7.jpg" alt="Работа 6" onclick="openModal(this)">
+      <img src="7.jpg" alt="Цифровая иллюстрация Работа 6 от Kumarov-Arts" onclick="openModal(this)">
       <div class="caption">Работа 6</div>
     </div>
     <div class="gallery-item">
-      <img src="8.jpg" alt="Работа 7" onclick="openModal(this)">
+      <img src="8.jpg" alt="Цифровая иллюстрация Работа 7 от Kumarov-Arts" onclick="openModal(this)">
       <div class="caption">Работа 7</div>
     </div>
   </div>
 
   <div class="social-section">
-    <p>Не забудь кликнуть на изображение чтобы посмотреть их на полным экране</p>
+    <p>Не забудь кликнуть на изображение чтобы посмотреть их на полном экране</p>
     <p>Связаться с нами можно через соц. сети, будем вам рады!</p>
     <div class="social-links">
       <a href="https://www.tiktok.com/@kumarov_arts3?_t=ZM-8z8gMFEkvPs&_r=1" target="_blank" rel="noopener">TikTok</a>
@@ -114,12 +154,11 @@ h2 {
   width: 100%;
 }
 
-/* ключевое изменение */
 .gallery-item img {
   width: 100%;
-  height: 260px; /* фиксированная рамка */
-  object-fit: contain; /* картинка не обрезается */
-  background-color: #1e293b; /* фон для "пустых" краёв */
+  height: 260px;
+  object-fit: contain;
+  background-color: #1e293b;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   cursor: pointer;
@@ -203,7 +242,6 @@ h2 {
   to { transform: scale(1); opacity: 1; }
 }
 </style>
-
 
 </body>
 </html>
