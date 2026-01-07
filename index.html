@@ -6,23 +6,23 @@
     <title>Kumarov-Arts — Художественные работы на заказ</title>
 
     <!-- SEO мета-теги -->
-    <meta name="description" content="Kumarov-Arts — уникальные художественные работы по вашим идеям и фантазиям. Превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
-    <meta name="keywords" content="Kumarov-Arts, рисунки на заказ, превью YouTube, аватарки, рекламные ролики, цифровое искусство, арт галерея, художник, иллюстрации, творчество, TikTok, Instagram">
+    <meta name="description" content="Kumarov-Arts — уникальные художественные работы по вашим идеям и фантазиям. Галерея рисунков, превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
+    <meta name="keywords" content="Kumarov-Arts, рисунки на заказ, цифровое искусство, арт галерея, художник, иллюстрации, творчество, TikTok, Instagram, превью YouTube, аватарки, рекламные ролики">
     <meta name="author" content="Kumarov-Arts">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Kumarov-Arts — художественные работы на заказ">
-    <meta property="og:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
+    <meta property="og:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Галерея работ, превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kumarov-arts.kz/">
-    <meta property="og:image" content="https://kumarov-arts.kz/preview.jpg">
+    <meta property="og:image" content="https://kumarov-arts.kz/1.jpg">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kumarov-Arts — художественные работы на заказ">
-    <meta name="twitter:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
-    <meta name="twitter:image" content="https://kumarov-arts.kz/preview.jpg">
+    <meta name="twitter:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Галерея работ, превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
+    <meta name="twitter:image" content="https://kumarov-arts.kz/1.jpg">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -39,7 +39,12 @@
         "image": [
             "https://kumarov-arts.kz/1.jpg",
             "https://kumarov-arts.kz/2.jpg",
-            "https://kumarov-arts.kz/3.jpg"
+            "https://kumarov-arts.kz/3.jpg",
+            "https://kumarov-arts.kz/4.jpg",
+            "https://kumarov-arts.kz/5.jpg",
+            "https://kumarov-arts.kz/6.jpg",
+            "https://kumarov-arts.kz/7.jpg",
+            "https://kumarov-arts.kz/8.jpg"
         ]
     }
     </script>
@@ -53,13 +58,15 @@
 
     <!-- Галерея превью -->
     <div class="preview-gallery">
+        <h3 class="gallery-title">Галерея наших работ</h3>
+        <p class="gallery-subtitle">Кликните на изображение для просмотра в полном размере</p>
         <div class="preview-container" id="previewContainer">
             <!-- Превью будут добавлены через JavaScript -->
         </div>
     </div>
 
     <!-- Прайс-лист -->
-    <section class="price-section">
+    <section class="price-section" id="price-section">
         <h2 class="price-title">Наши услуги и цены</h2>
         <p class="price-subtitle">Все цены указаны в казахстанских тенге (₸)</p>
         
@@ -108,6 +115,20 @@
                     <div class="price-badge">от 50 000 ₸</div>
                 </div>
                 <div class="price-card-content">
+                    <!-- Видео пример -->
+                    <div class="video-demo">
+                        <div class="video-label">
+                            <span class="play-icon">▶</span> Пример анимации
+                        </div>
+                        <video class="demo-video" autoplay loop muted playsinline>
+                            <source src="анимация.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео тег.
+                        </video>
+                        <div class="video-caption">
+                            Пример рекламной анимации (зациклено)
+                        </div>
+                    </div>
+                    
                     <ul class="price-features">
                         <li>Анимационная графика и иллюстрации</li>
                         <li>Длительность до 60 секунд</li>
@@ -125,6 +146,7 @@
         <div class="price-footer">
             <p>💡 <strong>Индивидуальные проекты:</strong> Стоимость обсуждается отдельно в зависимости от сложности и сроков</p>
             <p>🎨 <strong>Скидка 10%</strong> при заказе двух и более услуг одновременно</p>
+            <p>📞 <strong>Консультация бесплатно!</strong> Обсудим ваш проект и подберем оптимальное решение</p>
         </div>
     </section>
 
@@ -145,7 +167,7 @@
         <div class="social-links">
             <a href="https://www.tiktok.com/@kumarov_arts3" target="_blank" rel="noopener">TikTok</a>
             <a href="https://www.instagram.com/kumarov_arts" target="_blank" rel="noopener">Instagram</a>
-            <a href="#price-section" class="cta-button">Узнать цену</a>
+            <a href="#price-section" class="cta-button">Посмотреть цены</a>
         </div>
     </div>
 
