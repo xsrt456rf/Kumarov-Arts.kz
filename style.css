@@ -1,465 +1,438 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 :root {
-    --primary: #2a2d7c;
-    --secondary: #ff6b35;
-    --dark: #1a1a2e;
-    --light: #f8f9fa;
-    --gray: #6c757d;
+    --tilda-blue: #3b82f6;
+    --tilda-bg-dark: #0f172a;
+    --tilda-text: #f8fafc;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --featured-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 }
 
 body {
-    background-color: #f5f7ff;
-    color: #333;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--tilda-text);
+    text-align: center;
+    background: linear-gradient(180deg, var(--tilda-bg-dark) 0%, #1e293b 100%);
+    background-attachment: fixed;
+    background-size: cover;
     overflow-x: hidden;
 }
 
-.container {
+h1 {
+    margin-top: 40px;
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--tilda-blue);
+    letter-spacing: -1px;
+}
+
+h2 {
+    margin-bottom: 40px;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #cbd5e1;
+}
+
+/* Прайс-лист */
+.price-section {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 80px auto 60px;
     padding: 0 20px;
 }
 
-/* Header - ТОЧНО КАК В ОРИГИНАЛЕ */
-header {
-    background: linear-gradient(135deg, var(--primary), #1a1a2e);
-    color: white;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.price-title {
+    font-size: 2.5em;
+    color: var(--tilda-blue);
+    margin-bottom: 10px;
 }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.price-subtitle {
+    font-size: 1.2em;
+    color: #94a3b8;
+    margin-bottom: 50px;
 }
 
-.logo {
-    font-size: 2rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-}
-
-.logo i {
-    color: var(--secondary);
-    margin-right: 10px;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--secondary);
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Hero Section - ТОЧНО КАК В ОРИГИНАЛЕ */
-.hero {
-    padding: 80px 0 40px;
-    text-align: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    color: var(--primary);
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--gray);
-    max-width: 800px;
-    margin: 0 auto 30px;
-}
-
-/* Услуги с портфолио - ТОЧНО КАК В ОРИГИНАЛЕ */
-.services-portfolio {
-    padding: 80px 0;
-    background-color: white;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 15px;
-}
-
-.section-title p {
-    color: var(--gray);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.services-grid {
+.price-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    margin-bottom: 40px;
 }
 
-.service-card {
-    background: white;
+.price-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--tilda-blue);
+}
+
+.price-card-featured {
+    background: var(--featured-gradient);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.price-card-featured::before {
+    content: "★ ПОПУЛЯРНО ★";
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: #fbbf24;
+    color: #000;
+    padding: 5px 40px;
+    font-size: 0.8em;
+    font-weight: bold;
+    transform: rotate(45deg);
+}
+
+.price-card-header {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.price-card-header h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.price-card-featured .price-card-header h3 {
+    color: white;
+}
+
+.price-badge {
+    display: inline-block;
+    background: var(--tilda-blue);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.price-card-featured .price-badge {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--tilda-blue);
+}
+
+.price-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.price-features li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    color: #e2e8f0;
+}
+
+.price-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--tilda-blue);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.price-card-featured .price-features li::before {
+    color: white;
+}
+
+.price-note {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: #cbd5e1;
+}
+
+.price-footer {
+    background: rgba(30, 41, 59, 0.5);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 40px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.price-footer p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #94a3b8;
+}
+
+/* Галерея превью */
+.preview-gallery {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.preview-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 20px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--tilda-blue) transparent;
+}
+
+.preview-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.preview-container::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.preview-container::-webkit-scrollbar-thumb {
+    background: var(--tilda-blue);
+    border-radius: 4px;
+}
+
+.preview-item {
+    flex: 0 0 auto;
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    border: 2px solid transparent;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+.preview-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--tilda-blue);
 }
 
-.service-media {
-    height: 250px;
-    position: relative;
-    background-color: #000;
-    overflow: hidden;
+.preview-item.active {
+    border-color: var(--tilda-blue);
+    box-shadow: 0 0 15px rgba(59,130,246,0.5);
 }
 
-/* Слайдер контейнер - ТОЧНО КАК В ОРИГИНАЛЕ */
-.slider-container {
+.preview-item img {
     width: 100%;
-    height: 100%;
-    position: relative;
+    height: 150px;
+    object-fit: cover;
+    display: block;
 }
 
-/* Слайды - ТОЧНО КАК В ОРИГИНАЛЕ */
-.slide {
-    position: absolute;
+.preview-caption {
+    padding: 10px 5px;
+    font-size: 0.9em;
+    background: rgba(30,41,59,0.8);
+}
+
+/* Полноэкранный просмотр */
+.fullscreen-viewer {
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    display: flex;
-    align-items: center;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
     justify-content: center;
-    background: #000;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.slide video, .slide img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-/* Видео слайд - ТОЧНО КАК В ОРИГИНАЛЕ */
-.video-slide video {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-.service-content {
-    padding: 25px;
-    flex-grow: 1;
-    display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
-.service-content h3 {
-    color: var(--primary);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.service-content p {
-    color: var(--gray);
-    margin-bottom: 20px;
-    flex-grow: 1;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.service-icon {
-    font-size: 2.5rem;
-    color: var(--secondary);
-    margin-bottom: 15px;
-}
-
-/* Кнопки для ссылок на сайты - ТОЧНО КАК В ОРИГИНАЛЕ */
-.website-links {
+.fullscreen-viewer.active {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
 }
 
-.website-link {
+.fullscreen-image-container {
+    max-width: 90%;
+    max-height: 80vh;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--primary);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: all 0.3s;
-    border: 2px solid transparent;
-}
-
-.website-link:hover {
-    background: white;
-    color: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.website-link i {
-    font-size: 1.1rem;
-    transition: transform 0.3s;
-}
-
-.website-link:hover i {
-    transform: translateX(5px);
-}
-
-/* Цвета для разных кнопок - ТОЧНО КАК В ОРИГИНАЛЕ */
-.website-link:nth-child(1) {
-    background: linear-gradient(135deg, #2a2d7c, #3a3fa0);
-}
-
-.website-link:nth-child(2) {
-    background: linear-gradient(135deg, #1a5fb4, #2a7dd6);
-}
-
-.website-link:nth-child(3) {
-    background: linear-gradient(135deg, #26a269, #36b279);
-}
-
-.website-link:nth-child(4) {
-    background: linear-gradient(135deg, #a51d2d, #c53445);
-}
-
-.website-link:nth-child(5) {
-    background: linear-gradient(135deg, #7c2a8c, #9c3aac);
-}
-
-.website-link:nth-child(6) {
-    background: linear-gradient(135deg, #c05621, #e0702b);
-}
-
-/* Заголовок для ссылок на проекты - ТОЧНО КАК В ОРИГИНАЛЕ */
-.projects-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--secondary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.projects-title i {
-    color: var(--secondary);
-}
-
-/* Contact Section - ТОЧНО КАК В ОРИГИНАЛЕ */
-.contact {
-    padding: 80px 0;
-    background: linear-gradient(135deg, var(--primary), #1a1a2e);
-    color: white;
-    text-align: center;
-}
-
-.contact h3 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: white;
-}
-
-.instagram-link {
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-    color: white;
-    padding: 20px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+    align-items: center;
+}
+
+.fullscreen-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.fullscreen-caption {
     margin-top: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.instagram-link:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.instagram-link i {
-    font-size: 2rem;
-    margin-right: 15px;
-}
-
-/* Footer - ТОЧНО КАК В ОРИГИНАЛЕ */
-footer {
-    background-color: var(--dark);
+    font-size: 1.2em;
     color: white;
-    padding: 40px 0 20px;
-    text-align: center;
 }
 
-.footer-content {
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1001;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(59,130,246,0.7);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    justify-content: center;
+    transition: background 0.3s;
+    z-index: 1001;
 }
 
-.social-links {
-    display: flex;
+.nav-btn:hover {
+    background: rgba(59,130,246,0.9);
+}
+
+.prev-btn {
+    left: 30px;
+}
+
+.next-btn {
+    right: 30px;
+}
+
+.social-section {
+    margin-top: 40px;
+    padding: 40px 20px;
+    background: rgba(30, 41, 59, 0.5);
+}
+
+.social-section p {
+    margin-bottom: 16px;
+    font-size: 1.3em;
+    font-weight: 500;
 }
 
 .social-links a {
     display: inline-block;
+    margin: 10px;
+    padding: 12px 24px;
+    background-color: var(--tilda-blue);
     color: white;
-    background: rgba(255, 255, 255, 0.1);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    transition: background 0.3s;
-}
-
-.social-links a:hover {
-    background: var(--secondary);
-}
-
-.copyright {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-}
-
-/* Responsive - ТОЧНО КАК В ОРИГИНАЛЕ */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    nav ul {
-        margin-top: 20px;
-        flex-direction: column;
-    }
-    
-    nav ul li {
-        margin: 10px 0;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        top: 25px;
-        right: 20px;
-    }
-    
-    .mobile-menu {
-        display: none;
-    }
-    
-    .mobile-menu.active {
-        display: block;
-    }
-    
-    .website-links {
-        flex-direction: column;
-    }
-    
-    .website-link {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-    }
-    
-    .social-links {
-        margin-top: 20px;
-    }
-}
-
-/* Дополнительный стиль для цен - минимальное изменение */
-.price-note {
-    color: var(--secondary);
+    text-decoration: none;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    transition: all 0.3s ease;
 }
 
-.price-details {
-    font-size: 0.9rem;
-    color: var(--gray);
-    line-height: 1.5;
-    margin-bottom: 15px;
+.social-links a:hover { 
+    background-color: #2563eb; 
+    transform: translateY(-3px); 
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+        margin-top: 20px;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+        padding: 0 15px;
+    }
+    
+    .price-title {
+        font-size: 2em;
+    }
+    
+    .price-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .price-card {
+        padding: 20px;
+    }
+    
+    .price-card-featured::before {
+        font-size: 0.7em;
+        right: -35px;
+        top: 10px;
+    }
+    
+    .preview-item {
+        width: 150px;
+    }
+    
+    .preview-item img {
+        height: 120px;
+    }
+    
+    .nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .prev-btn {
+        left: 15px;
+    }
+    
+    .next-btn {
+        right: 15px;
+    }
+    
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+    }
+    
+    .social-links a {
+        display: block;
+        margin: 10px auto;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-badge {
+        font-size: 1.2em;
+        padding: 8px 20px;
+    }
+    
+    .price-card-header h3 {
+        font-size: 1.5em;
+    }
 }
