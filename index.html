@@ -1,499 +1,83 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kumarov-Arts — Художественные работы на заказ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumarov-Arts — Художественные работы на заказ</title>
 
-<!-- SEO мета-теги -->
-<meta name="description" content="Kumarov-Arts — уникальные художественные работы по вашим идеям и фантазиям. Галерея, услуги на заказ, контакт через Instagram и TikTok.">
-<meta name="keywords" content="Kumarov-Arts, рисунки на заказ, цифровое искусство, арт галерея, художник, иллюстрации, творчество, TikTok, Instagram">
-<meta name="author" content="Kumarov-Arts">
-<meta name="robots" content="index, follow">
+    <!-- SEO мета-теги -->
+    <meta name="description" content="Kumarov-Arts — уникальные художественные работы по вашим идеям и фантазиям. Галерея, услуги на заказ, контакт через Instagram и TikTok.">
+    <meta name="keywords" content="Kumarov-Arts, рисунки на заказ, цифровое искусство, арт галерея, художник, иллюстрации, творчество, TikTok, Instagram">
+    <meta name="author" content="Kumarov-Arts">
+    <meta name="robots" content="index, follow">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Kumarov-Arts — художественные работы на заказ">
-<meta property="og:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Связь через Instagram и TikTok.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kumarov-arts.kz/">
-<meta property="og:image" content="https://kumarov-arts.kz/preview.jpg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kumarov-Arts — художественные работы на заказ">
+    <meta property="og:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Связь через Instagram и TikTok.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kumarov-arts.kz/">
+    <meta property="og:image" content="https://kumarov-arts.kz/preview.jpg">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kumarov-Arts — художественные работы на заказ">
-<meta name="twitter:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Связь через Instagram и TikTok.">
-<meta name="twitter:image" content="https://kumarov-arts.kz/preview.jpg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kumarov-Arts — художественные работы на заказ">
+    <meta name="twitter:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Связь через Instagram и TikTok.">
+    <meta name="twitter:image" content="https://kumarov-arts.kz/preview.jpg">
 
-<!-- Schema.org -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ArtGallery",
-  "name": "Kumarov-Arts",
-  "description": "Уникальные художественные работы по вашим идеям",
-  "url": "https://kumarov-arts.kz/",
-  "sameAs": [
-    "https://www.instagram.com/kumarov_arts",
-    "https://www.tiktok.com/@kumarov_arts3"
-  ],
-  "image": [
-    "https://kumarov-arts.kz/1.jpg",
-    "https://kumarov-arts.kz/2.jpg",
-    "https://kumarov-arts.kz/3.jpg"
-  ]
-}
-</script>
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ArtGallery",
+        "name": "Kumarov-Arts",
+        "description": "Уникальные художественные работы по вашим идеям",
+        "url": "https://kumarov-arts.kz/",
+        "sameAs": [
+            "https://www.instagram.com/kumarov_arts",
+            "https://www.tiktok.com/@kumarov_arts3"
+        ],
+        "image": [
+            "https://kumarov-arts.kz/1.jpg",
+            "https://kumarov-arts.kz/2.jpg",
+            "https://kumarov-arts.kz/3.jpg"
+        ]
+    }
+    </script>
 
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-
-<style>
-:root {
-  --tilda-blue: #3b82f6;
-  --tilda-bg-dark: #0f172a;
-  --tilda-text: #f8fafc;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  color: var(--tilda-text);
-  text-align: center;
-  background: linear-gradient(180deg, var(--tilda-bg-dark) 0%, #1e293b 100%);
-  background-attachment: fixed;
-  background-size: cover;
-  overflow-x: hidden;
-}
-
-h1 {
-  margin-top: 40px;
-  font-size: 3em;
-  font-weight: 700;
-  color: var(--tilda-blue);
-  letter-spacing: -1px;
-}
-h2 {
-  margin-bottom: 40px;
-  font-size: 1.5em;
-  font-weight: 400;
-  color: #cbd5e1;
-}
-
-/* Галерея превью */
-.preview-gallery {
-  max-width: 1200px;
-  margin: 0 auto 60px;
-  padding: 0 20px;
-}
-
-.preview-container {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  padding: 20px 10px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--tilda-blue) transparent;
-}
-
-.preview-container::-webkit-scrollbar {
-  height: 8px;
-}
-.preview-container::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.1);
-  border-radius: 4px;
-}
-.preview-container::-webkit-scrollbar-thumb {
-  background: var(--tilda-blue);
-  border-radius: 4px;
-}
-
-.preview-item {
-  flex: 0 0 auto;
-  width: 200px;
-  cursor: pointer;
-  transition: transform 0.3s;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid transparent;
-}
-
-.preview-item:hover {
-  transform: translateY(-5px);
-  border-color: var(--tilda-blue);
-}
-
-.preview-item.active {
-  border-color: var(--tilda-blue);
-  box-shadow: 0 0 15px rgba(59,130,246,0.5);
-}
-
-.preview-item img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-}
-
-.preview-caption {
-  padding: 10px 5px;
-  font-size: 0.9em;
-  background: rgba(30,41,59,0.8);
-}
-
-/* Полноэкранный просмотр */
-.fullscreen-viewer {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.fullscreen-viewer.active {
-  display: flex;
-}
-
-.fullscreen-image-container {
-  max-width: 90%;
-  max-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fullscreen-image {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-.fullscreen-caption {
-  margin-top: 20px;
-  font-size: 1.2em;
-  color: white;
-}
-
-.close-btn {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-  background: none;
-  border: none;
-  z-index: 1001;
-}
-
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(59,130,246,0.7);
-  color: white;
-  border: none;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
-  z-index: 1001;
-}
-
-.nav-btn:hover {
-  background: rgba(59,130,246,0.9);
-}
-
-.prev-btn {
-  left: 30px;
-}
-
-.next-btn {
-  right: 30px;
-}
-
-.social-section {
-  margin-top: 40px;
-}
-.social-section p {
-  margin-bottom: 16px;
-  font-size: 1.3em;
-  font-weight: 500;
-}
-.social-links a {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 24px;
-  background-color: var(--tilda-blue);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.social-links a:hover { 
-  background-color: #2563eb; 
-  transform: translateY(-3px); 
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2em;
-    margin-top: 20px;
-  }
-  h2 {
-    font-size: 1.2em;
-    padding: 0 15px;
-  }
-  .preview-item {
-    width: 150px;
-  }
-  .preview-item img {
-    height: 120px;
-  }
-  .nav-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
-  .prev-btn {
-    left: 15px;
-  }
-  .next-btn {
-    right: 15px;
-  }
-  .close-btn {
-    top: 15px;
-    right: 15px;
-    font-size: 30px;
-  }
-}
-</style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Kumarov-Arts — Художественные работы на заказ</h1>
+    <h2>Создаём уникальные иллюстрации по вашим идеям и фантазиям</h2>
 
-<h1>Kumarov-Arts — Художественные работы на заказ</h1>
-<h2>Создаём уникальные иллюстрации по вашим идеям и фантазиям</h2>
+    <!-- Галерея превью -->
+    <div class="preview-gallery">
+        <div class="preview-container" id="previewContainer">
+            <!-- Превью будут добавлены через JavaScript -->
+        </div>
+    </div>
 
-<!-- Галерея превью -->
-<div class="preview-gallery">
-  <div class="preview-container" id="previewContainer">
-    <!-- Превью будут добавлены через JavaScript -->
-  </div>
-</div>
+    <!-- Полноэкранный просмотр -->
+    <div class="fullscreen-viewer" id="fullscreenViewer">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+        <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+        
+        <div class="fullscreen-image-container">
+            <img class="fullscreen-image" id="fullscreenImage" src="" alt="">
+        </div>
+        <div class="fullscreen-caption" id="fullscreenCaption"></div>
+    </div>
 
-<!-- Полноэкранный просмотр -->
-<div class="fullscreen-viewer" id="fullscreenViewer">
-  <button class="close-btn" id="closeBtn">&times;</button>
-  <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
-  <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
-  
-  <div class="fullscreen-image-container">
-    <img class="fullscreen-image" id="fullscreenImage" src="" alt="">
-  </div>
-  <div class="fullscreen-caption" id="fullscreenCaption"></div>
-</div>
+    <div class="social-section">
+        <p>Связаться с нами можно через соц. сети, будем вам рады!</p>
+        <div class="social-links">
+            <a href="https://www.tiktok.com/@kumarov_arts3" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://www.instagram.com/kumarov_arts" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
 
-<div class="social-section">
-  <p>Связаться с нами можно через соц. сети, будем вам рады!</p>
-  <div class="social-links">
-    <a href="https://www.tiktok.com/@kumarov_arts3" target="_blank" rel="noopener">TikTok</a>
-    <a href="https://www.instagram.com/kumarov_arts" target="_blank" rel="noopener">Instagram</a>
-  </div>
-</div>
-
-<script>
-const images = [
-  { src: '1.jpg', alt: 'Цифровая иллюстрация Работа 1 от Kumarov-Arts', caption: 'Работа 1' },
-  { src: '2.jpg', alt: 'Цифровая иллюстрация Работа 2 от Kumarov-Arts', caption: 'Работа 2' },
-  { src: '3.jpg', alt: 'Цифровая иллюстрация Работа 3 от Kumarov-Arts', caption: 'Работа 3' },
-  { src: '4.jpg', alt: 'Цифровая иллюстрация Работа 4 от Kumarov-Arts', caption: 'Работа 4' },
-  { src: '6.jpg', alt: 'Цифровая иллюстрация Работа 5 от Kumarov-Arts', caption: 'Работа 5' },
-  { src: '7.jpg', alt: 'Цифровая иллюстрация Работа 6 от Kumarov-Arts', caption: 'Работа 6' },
-  { src: '8.jpg', alt: 'Цифровая иллюстрация Работа 7 от Kumarov-Arts', caption: 'Работа 7' }
-];
-
-let currentIndex = 0;
-const previewContainer = document.getElementById('previewContainer');
-const fullscreenViewer = document.getElementById('fullscreenViewer');
-const fullscreenImage = document.getElementById('fullscreenImage');
-const fullscreenCaption = document.getElementById('fullscreenCaption');
-const closeBtn = document.getElementById('closeBtn');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-
-// Создание превью
-images.forEach((image, index) => {
-  const previewItem = document.createElement('div');
-  previewItem.className = 'preview-item';
-  previewItem.dataset.index = index;
-  
-  const img = document.createElement('img');
-  img.src = image.src;
-  img.alt = image.alt;
-  img.loading = 'lazy';
-  
-  const caption = document.createElement('div');
-  caption.className = 'preview-caption';
-  caption.textContent = image.caption;
-  
-  previewItem.appendChild(img);
-  previewItem.appendChild(caption);
-  previewContainer.appendChild(previewItem);
-  
-  // Клик по превью
-  previewItem.addEventListener('click', () => {
-    openFullscreen(index);
-  });
-});
-
-// Открыть полноэкранный просмотр
-function openFullscreen(index) {
-  currentIndex = index;
-  updateFullscreen();
-  fullscreenViewer.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  
-  // Пометка активного превью
-  document.querySelectorAll('.preview-item').forEach((item, i) => {
-    item.classList.toggle('active', i === index);
-  });
-}
-
-// Обновить полноэкранное изображение
-function updateFullscreen() {
-  const image = images[currentIndex];
-  fullscreenImage.src = image.src;
-  fullscreenImage.alt = image.alt;
-  fullscreenCaption.textContent = image.caption;
-}
-
-// Закрыть просмотр
-closeBtn.addEventListener('click', () => {
-  fullscreenViewer.classList.remove('active');
-  document.body.style.overflow = 'auto';
-});
-
-// Навигация
-prevBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateFullscreen();
-  updateActivePreview();
-});
-
-nextBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex + 1) % images.length;
-  updateFullscreen();
-  updateActivePreview();
-});
-
-// Обновить активное превью
-function updateActivePreview() {
-  document.querySelectorAll('.preview-item').forEach((item, i) => {
-    item.classList.toggle('active', i === currentIndex);
-  });
-  
-  // Прокрутить превью к активному элементу
-  const activePreview = document.querySelector(`.preview-item[data-index="${currentIndex}"]`);
-  if (activePreview) {
-    activePreview.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  }
-}
-
-// Закрытие по клику на фон
-fullscreenViewer.addEventListener('click', (e) => {
-  if (e.target === fullscreenViewer) {
-    fullscreenViewer.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-});
-
-// Управление клавиатурой
-document.addEventListener('keydown', (e) => {
-  if (!fullscreenViewer.classList.contains('active')) return;
-  
-  switch(e.key) {
-    case 'Escape':
-      fullscreenViewer.classList.remove('active');
-      document.body.style.overflow = 'auto';
-      break;
-    case 'ArrowLeft':
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateFullscreen();
-      updateActivePreview();
-      break;
-    case 'ArrowRight':
-      currentIndex = (currentIndex + 1) % images.length;
-      updateFullscreen();
-      updateActivePreview();
-      break;
-  }
-});
-
-// Свайпы на мобильных устройствах
-let touchStartX = 0;
-let touchEndX = 0;
-
-fullscreenViewer.addEventListener('touchstart', (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-fullscreenViewer.addEventListener('touchend', (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  const swipeThreshold = 50;
-  const diff = touchStartX - touchEndX;
-  
-  if (Math.abs(diff) > swipeThreshold) {
-    if (diff > 0) {
-      // Свайп влево - следующее изображение
-      currentIndex = (currentIndex + 1) % images.length;
-    } else {
-      // Свайп вправо - предыдущее изображение
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-    }
-    updateFullscreen();
-    updateActivePreview();
-  }
-}
-
-// Автоскролл превью (опционально)
-let autoScrollInterval;
-function startAutoScroll() {
-  autoScrollInterval = setInterval(() => {
-    previewContainer.scrollBy({ left: 200, behavior: 'smooth' });
-    if (previewContainer.scrollLeft + previewContainer.clientWidth >= previewContainer.scrollWidth - 10) {
-      previewContainer.scrollLeft = 0;
-    }
-  }, 3000);
-}
-
-// Остановить автоскролл при наведении
-previewContainer.addEventListener('mouseenter', () => {
-  if (autoScrollInterval) clearInterval(autoScrollInterval);
-});
-previewContainer.addEventListener('mouseleave', startAutoScroll);
-
-// Запустить автоскролл через 3 секунды после загрузки
-setTimeout(startAutoScroll, 3000);
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
