@@ -23,6 +23,9 @@ const nextBtn = document.getElementById('nextBtn');
 
 // Создание превью
 function createPreviewGallery() {
+    // Очищаем контейнер
+    previewContainer.innerHTML = '';
+    
     images.forEach((image, index) => {
         const previewItem = document.createElement('div');
         previewItem.className = 'preview-item';
@@ -32,6 +35,11 @@ function createPreviewGallery() {
         img.src = image.src;
         img.alt = image.alt;
         img.loading = 'lazy';
+        img.onerror = function() {
+            // Если изображение не загружается, показываем заглушку
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjMUUyOTNCIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjM3NzhCIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiPkltYWdlIG5vdCBmb3VuZDwvdGV4dD4KPC9zdmc+';
+            this.alt = 'Изображение не найдено';
+        };
         
         const caption = document.createElement('div');
         caption.className = 'preview-caption';
@@ -65,6 +73,12 @@ function updateFullscreen() {
     fullscreenImage.src = image.src;
     fullscreenImage.alt = image.alt;
     fullscreenCaption.textContent = image.caption;
+    
+    // Добавляем обработчик ошибок для полноэкранного просмотра
+    fullscreenImage.onerror = function() {
+        this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMUUyOTNCIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjM3NzhCIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiPkltYWdlIG5vdCBmb3VuZDwvdGV4dD4KPHJlY3QgeD0iMzAwIiB5PSIyNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBzdHJva2U9IiM2Mzc3OEIiIHN0cm9rZS13aWR0aD0iMiIgcng9IjEwIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNjAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjM3NzhCIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkZhaWxlZCB0byBsb2FkOiAnICsgZmlsZW5hbWUgKyAnPC90ZXh0Pgo8L3N2Zz4=';
+        this.alt = 'Изображение не загружено';
+    };
 }
 
 // Обновить активное превью
@@ -155,8 +169,76 @@ function handleKeyDown(e) {
     }
 }
 
-// Инициализация
+// Управление видео в прайс-листе
+function initVideoControls() {
+    const video = document.querySelector('.demo-video');
+    
+    if (video) {
+        // Убедимся, что видео автоматически воспроизводится
+        video.setAttribute('autoplay', 'true');
+        video.setAttribute('loop', 'true');
+        video.setAttribute('muted', 'true');
+        video.setAttribute('playsinline', 'true');
+        
+        // Принудительное воспроизведение
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log('Автовоспроизведение не сработало:', error);
+                // Добавляем кнопку воспроизведения
+                const videoContainer = video.parentElement;
+                const playButton = document.createElement('button');
+                playButton.className = 'video-play-button';
+                playButton.innerHTML = '▶ Воспроизвести';
+                playButton.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: var(--tilda-blue);
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    z-index: 3;
+                `;
+                videoContainer.style.position = 'relative';
+                videoContainer.appendChild(playButton);
+                
+                playButton.addEventListener('click', () => {
+                    video.play();
+                    playButton.style.display = 'none';
+                });
+            });
+        }
+        
+        // Добавляем hover эффект для видео
+        video.addEventListener('mouseenter', () => {
+            video.style.filter = 'brightness(1.1)';
+        });
+        
+        video.addEventListener('mouseleave', () => {
+            video.style.filter = 'brightness(1)';
+        });
+    }
+}
+
+// Проверка существования файлов
+function checkImageFiles() {
+    console.log('Проверка файлов изображений:');
+    images.forEach(img => {
+        console.log(`- ${img.src}: загружается...`);
+    });
+}
+
+// Вызов функции инициализации видео в конце init()
 function init() {
+    // Проверяем файлы
+    checkImageFiles();
+    
+    // Создаем галерею
     createPreviewGallery();
     
     // Обработчики событий
@@ -184,7 +266,9 @@ function init() {
     
     // Запустить автоскролл через 3 секунды после загрузки
     setTimeout(startAutoScroll, 3000);
+    
+    // Инициализация видео
+    initVideoControls();
 }
 
-// Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', init);
