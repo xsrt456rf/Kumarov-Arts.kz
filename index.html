@@ -6,29 +6,29 @@
     <title>Kumarov-Arts — Художественные работы на заказ</title>
 
     <!-- SEO мета-теги -->
-    <meta name="description" content="Kumarov-Arts — уникальные художественные работы по вашим идеям и фантазиям. Галерея рисунков, превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
-    <meta name="keywords" content="Kumarov-Arts, рисунки на заказ, цифровое искусство, арт галерея, художник, иллюстрации, творчество, TikTok, Instagram, превью YouTube, аватарки, рекламные ролики">
+    <meta name="description" content="Kumarov-Arts — уникальные художественные работы по вашим идеям и фантазиям. Превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
+    <meta name="keywords" content="Kumarov-Arts, рисунки на заказ, превью YouTube, аватарки, рекламные ролики, цифровое искусство, арт галерея, художник, иллюстрации, творчество, TikTok, Instagram">
     <meta name="author" content="Kumarov-Arts">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Kumarov-Arts — художественные работы на заказ">
-    <meta property="og:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Галерея работ, превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
+    <meta property="og:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kumarov-arts.kz/">
-    <meta property="og:image" content="https://kumarov-arts.kz/1.jpg">
+    <meta property="og:image" content="https://kumarov-arts.kz/Амирхан.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kumarov-Arts — художественные работы на заказ">
-    <meta name="twitter:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Галерея работ, превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
-    <meta name="twitter:image" content="https://kumarov-arts.kz/1.jpg">
+    <meta name="twitter:description" content="Уникальные рисунки и иллюстрации по вашим идеям. Превью для YouTube, аватарки, рекламные ролики. Цены в тенге.">
+    <meta name="twitter:image" content="https://kumarov-arts.kz/Амирхан.png">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ArtGallery",
+        "@type": "CreativeWork",
         "name": "Kumarov-Arts",
         "description": "Уникальные художественные работы по вашим идеям",
         "url": "https://kumarov-arts.kz/",
@@ -36,16 +36,7 @@
             "https://www.instagram.com/kumarov_arts",
             "https://www.tiktok.com/@kumarov_arts3"
         ],
-        "image": [
-            "https://kumarov-arts.kz/1.jpg",
-            "https://kumarov-arts.kz/2.jpg",
-            "https://kumarov-arts.kz/3.jpg",
-            "https://kumarov-arts.kz/4.jpg",
-            "https://kumarov-arts.kz/5.jpg",
-            "https://kumarov-arts.kz/6.jpg",
-            "https://kumarov-arts.kz/7.jpg",
-            "https://kumarov-arts.kz/8.jpg"
-        ]
+        "image": "https://kumarov-arts.kz/Амирхан.png"
     }
     </script>
 
@@ -53,17 +44,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Kumarov-Arts — Художественные работы на заказ</h1>
-    <h2>Создаём уникальные иллюстрации по вашим идеям и фантазиям</h2>
-
-    <!-- Галерея превью -->
-    <div class="preview-gallery">
-        <h3 class="gallery-title">Галерея наших работ</h3>
-        <p class="gallery-subtitle">Кликните на изображение для просмотра в полном размере</p>
-        <div class="preview-container" id="previewContainer">
-            <!-- Превью будут добавлены через JavaScript -->
+    <!-- Шапка с фото и заголовком -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="artist-photo">
+                <img src="Амирхан.png" alt="Художник Kumarov-Arts" class="artist-img">
+            </div>
+            <div class="header-content">
+                <h1 class="main-title">Kumarov-Arts</h1>
+                <h2 class="main-subtitle">Художественные работы на заказ</h2>
+                <p class="artist-description">Создаём уникальные иллюстрации по вашим идеям и фантазиям</p>
+            </div>
         </div>
-    </div>
+    </header>
 
     <!-- Прайс-лист -->
     <section class="price-section" id="price-section">
@@ -77,6 +70,20 @@
                     <div class="price-badge">от 15 000 ₸</div>
                 </div>
                 <div class="price-card-content">
+                    <!-- Слайдшоу превью -->
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="previewSlideshow">
+                            <img class="slide active" src="Превью1.jpg" alt="Пример превью для YouTube 1">
+                            <img class="slide" src="Превью2.jpg" alt="Пример превью для YouTube 2">
+                        </div>
+                        <div class="slideshow-controls">
+                            <div class="slideshow-dots">
+                                <span class="dot active" data-slide="0"></span>
+                                <span class="dot" data-slide="1"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <ul class="price-features">
                         <li>Яркие, привлекающие внимание обложки</li>
                         <li>Соответствие стилю вашего канала</li>
@@ -96,6 +103,20 @@
                     <div class="price-badge">от 10 000 ₸</div>
                 </div>
                 <div class="price-card-content">
+                    <!-- Слайдшоу аватарок -->
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="avatarSlideshow">
+                            <img class="slide active" src="Аватарка.jpg" alt="Пример аватарки с участием клиента">
+                            <img class="slide" src="Аватарка2.jpg" alt="Пример аватарки с участием клиента 2">
+                        </div>
+                        <div class="slideshow-controls">
+                            <div class="slideshow-dots">
+                                <span class="dot active" data-slide="0"></span>
+                                <span class="dot" data-slide="1"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <ul class="price-features">
                         <li>Уникальный дизайн по вашим фотографиям</li>
                         <li>Поддержка разных форматов (PNG, JPG, SVG)</li>
@@ -117,16 +138,10 @@
                 <div class="price-card-content">
                     <!-- Видео пример -->
                     <div class="video-demo">
-                        <div class="video-label">
-                            <span class="play-icon">▶</span> Пример анимации
-                        </div>
                         <video class="demo-video" autoplay loop muted playsinline>
                             <source src="анимация.mp4" type="video/mp4">
                             Ваш браузер не поддерживает видео тег.
                         </video>
-                        <div class="video-caption">
-                            Пример рекламной анимации (зациклено)
-                        </div>
                     </div>
                     
                     <ul class="price-features">
@@ -150,24 +165,32 @@
         </div>
     </section>
 
-    <!-- Полноэкранный просмотр -->
-    <div class="fullscreen-viewer" id="fullscreenViewer">
-        <button class="close-btn" id="closeBtn">&times;</button>
-        <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
-        <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
-        
-        <div class="fullscreen-image-container">
-            <img class="fullscreen-image" id="fullscreenImage" src="" alt="">
-        </div>
-        <div class="fullscreen-caption" id="fullscreenCaption"></div>
-    </div>
-
     <div class="social-section">
         <p>Свяжитесь с нами для обсуждения вашего проекта!</p>
         <div class="social-links">
             <a href="https://www.tiktok.com/@kumarov_arts3" target="_blank" rel="noopener">TikTok</a>
             <a href="https://www.instagram.com/kumarov_arts" target="_blank" rel="noopener">Instagram</a>
             <a href="#price-section" class="cta-button">Посмотреть цены</a>
+        </div>
+    </div>
+
+    <!-- Модальное окно для полноэкранного просмотра -->
+    <div class="fullscreen-modal" id="fullscreenModal">
+        <button class="fullscreen-close" id="fullscreenClose">&times;</button>
+        <button class="fullscreen-nav fullscreen-prev" id="fullscreenPrev">‹</button>
+        <button class="fullscreen-nav fullscreen-next" id="fullscreenNext">›</button>
+        
+        <div class="fullscreen-content">
+            <!-- Для изображений -->
+            <img class="fullscreen-image" id="fullscreenImage" src="" alt="" style="display: none;">
+            
+            <!-- Для видео -->
+            <div class="fullscreen-video-container" id="fullscreenVideoContainer" style="display: none;">
+                <video class="fullscreen-video" id="fullscreenVideo" controls autoplay>
+                    <source src="" type="video/mp4">
+                    Ваш браузер не поддерживает видео тег.
+                </video>
+            </div>
         </div>
     </div>
 
