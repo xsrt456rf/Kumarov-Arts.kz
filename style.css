@@ -1,747 +1,141 @@
-:root {
-    --tilda-blue: #3b82f6;
-    --tilda-bg-dark: #0f172a;
-    --tilda-text: #f8fafc;
-    --card-bg: rgba(30, 41, 59, 0.7);
-    --featured-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-}
-
+/* Основные настройки */
 body {
     margin: 0;
-    padding: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    color: var(--tilda-text);
+    font-family: 'Arial', sans-serif; /* Похож на шрифт с картинки */
+    background: radial-gradient(circle, #1e3c72 0%, #1a2a44 100%);
+    color: white;
     text-align: center;
-    background: linear-gradient(180deg, var(--tilda-bg-dark) 0%, #1e293b 100%);
-    background-attachment: fixed;
-    background-size: cover;
-    overflow-x: hidden;
 }
 
-/* Шапка с фото - БЕЗ ТЕНЕЙ */
-.main-header {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
-    margin-bottom: 60px;
-}
-
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
+/* Навигация */
+.top-nav {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 30px;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Шапка */
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.hero-avatar {
+    width: 250px;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+}
+
+.brand-name {
+    font-size: 48px;
+    color: #0084ff;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.promo-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.offer-text {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Секция услуг */
+.section-title {
+    color: #0084ff;
+    font-size: 32px;
+    margin: 40px 0;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
-}
-
-.artist-photo {
-    position: relative;
-    width: 1000px; /* 1000px ШИРИНА */
-    height: 1000px; /* 1000px ВЫСОТА */
-    flex-shrink: 0;
-}
-
-.artist-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    position: relative;
-    transition: transform 0.5s ease;
-    border: none;
-}
-
-.artist-img:hover {
-    transform: scale(1.02);
-}
-
-.header-content {
-    flex: 1;
-    min-width: 350px;
-    text-align: left;
-}
-
-.main-title {
-    font-size: 5em;
-    font-weight: 800;
-    color: var(--tilda-blue);
-    margin: 0 0 25px 0;
-    letter-spacing: -1px;
-    text-shadow: 0 2px 5px rgba(59, 130, 246, 0.2);
-    line-height: 1.1;
-}
-
-.main-subtitle {
-    font-size: 2.5em;
-    font-weight: 400;
-    color: #cbd5e1;
-    margin: 0 0 35px 0;
-    line-height: 1.3;
-}
-
-.artist-description {
-    font-size: 1.8em;
-    color: #94a3b8;
-    line-height: 1.6;
-    margin-top: 30px;
-    max-width: 600px;
-    font-weight: 300;
-}
-
-/* Прайс-лист */
-.price-section {
-    max-width: 1400px;
-    margin: 80px auto 70px;
     padding: 0 20px;
 }
 
-.price-title {
-    font-size: 3.5em;
-    color: var(--tilda-blue);
-    margin-bottom: 20px;
+.service-card {
+    background: linear-gradient(180deg, #0056b3 0%, #003d80 100%);
+    width: 280px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-.price-subtitle {
-    font-size: 1.6em;
-    color: #94a3b8;
-    margin-bottom: 70px;
-}
-
-.price-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.price-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 35px;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    backdrop-filter: blur(10px);
+.service-card h3 {
+    font-size: 18px;
+    height: 50px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.price-card:hover {
-    transform: translateY(-12px);
-    border-color: var(--tilda-blue);
-}
-
-.price-card-featured {
-    background: var(--featured-gradient);
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.price-card-featured::before {
-    content: "★ ПОПУЛЯРНО ★";
-    position: absolute;
-    top: 20px;
-    right: -35px;
-    background: #fbbf24;
-    color: #000;
-    padding: 6px 45px;
-    font-size: 0.9em;
+.portfolio-box {
+    background: black;
+    height: 150px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
-    transform: rotate(45deg);
+    border-radius: 8px;
 }
 
-.price-card-header {
-    margin-bottom: 30px;
-    padding-bottom: 25px;
-    border-bottom: 2px solid rgba(59, 130, 246, 0.3);
-}
-
-.price-card-header h3 {
-    font-size: 2.2em;
-    margin-bottom: 18px;
-    color: white;
-}
-
-.price-card-featured .price-card-header h3 {
-    color: white;
-}
-
-.price-badge {
-    display: inline-block;
-    background: var(--tilda-blue);
-    color: white;
-    padding: 15px 35px;
-    border-radius: 60px;
-    font-size: 1.8em;
+.price-tag {
+    background: white;
+    color: #0056b3;
+    padding: 10px;
+    border-radius: 8px;
     font-weight: bold;
-    margin-top: 12px;
+    font-size: 20px;
 }
 
-.price-card-featured .price-badge {
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--tilda-blue);
-}
-
-.price-card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Слайдшоу */
-.slideshow-container {
-    margin: 0 auto 30px;
-    width: 100%;
-    max-width: 350px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(59, 130, 246, 0.3);
-    position: relative;
-}
-
-.slideshow {
-    position: relative;
-    width: 100%;
-    min-height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.slide {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    object-fit: contain;
-    cursor: pointer;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.slideshow-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.5);
-    gap: 20px;
-}
-
-.slideshow-dots {
-    display: flex;
-    gap: 12px;
-}
-
-.dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.dot.active {
-    background: var(--tilda-blue);
-}
-
-.dot:hover {
-    background: rgba(59, 130, 246, 0.7);
-}
-
-/* Видео демо */
-.video-demo {
-    margin: 0 auto 30px;
-    width: 100%;
-    max-width: 350px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(59, 130, 246, 0.3);
-    position: relative;
-    cursor: pointer;
-}
-
-.demo-video {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    display: block;
-    border-radius: 10px;
-    background: #000;
-    cursor: pointer;
-}
-
-.price-features {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin-bottom: 35px;
-    flex: 1;
-}
-
-.price-features li {
-    padding: 15px 0;
-    padding-left: 40px;
-    position: relative;
-    color: #e2e8f0;
-    font-size: 1.1em;
-}
-
-.price-features li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--tilda-blue);
-    font-weight: bold;
-    font-size: 1.4em;
-}
-
-.price-card-featured .price-features li::before {
-    color: white;
-}
-
-.price-note {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 22px;
-    border-radius: 12px;
-    margin-top: 30px;
-    font-size: 1.1em;
-    color: #cbd5e1;
-}
-
-.price-footer {
-    background: rgba(30, 41, 59, 0.5);
-    padding: 35px;
-    border-radius: 18px;
-    margin-top: 60px;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-.price-footer p {
-    margin: 15px 0;
-    font-size: 1.3em;
-    color: #94a3b8;
-}
-
-.social-section {
-    margin-top: 60px;
-    padding: 60px 20px;
-    background: rgba(30, 41, 59, 0.5);
-}
-
-.social-section p {
-    margin-bottom: 25px;
-    font-size: 1.6em;
-    font-weight: 500;
-}
-
-.social-links a {
-    display: inline-block;
-    margin: 15px;
-    padding: 16px 35px;
-    background-color: var(--tilda-blue);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1.2em;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover { 
-    background-color: #2563eb; 
-    transform: translateY(-3px); 
-}
-
-.cta-button {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
-}
-
-.cta-button:hover {
-    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
-}
-
-/* Модальное окно для просмотра в полном размере */
-.fullscreen-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.97);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-}
-
-.fullscreen-modal.active {
-    display: flex;
-}
-
-.fullscreen-content {
-    max-width: 95%;
-    max-height: 95vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.fullscreen-image {
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 5px;
-    display: block;
-}
-
-.fullscreen-video-container {
-    width: 90%;
+/* Инфо-блок */
+.info-block {
+    margin: 40px auto;
     max-width: 800px;
-    max-height: 90vh;
-    display: none;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-.fullscreen-video {
-    width: 100%;
-    height: auto;
-    max-height: 80vh;
-    border-radius: 5px;
-    background: #000;
+/* Кнопки соцсетей */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 50px;
 }
 
-.fullscreen-close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: rgba(59, 130, 246, 0.9);
-    color: white;
-    border: none;
-    font-size: 40px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
+.btn-social {
     display: flex;
     align-items: center;
-    justify-content: center;
-    z-index: 10001;
-    transition: all 0.3s;
-}
-
-.fullscreen-close:hover {
-    background: rgba(59, 130, 246, 1);
-    transform: scale(1.1);
-}
-
-.fullscreen-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(59, 130, 246, 0.8);
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
     color: white;
-    border: none;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    font-size: 40px;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    z-index: 10001;
+    font-weight: bold;
+    background: #0056b3;
+    border: 2px solid #0084ff;
+    transition: 0.3s;
 }
 
-.fullscreen-nav:hover {
-    background: rgba(59, 130, 246, 1);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.fullscreen-prev {
-    left: 30px;
-}
-
-.fullscreen-next {
-    right: 30px;
-}
-
-/* Адаптивность для 1000px фото */
-@media (max-width: 1600px) {
-    .artist-photo {
-        width: 800px;
-        height: 800px;
-    }
-    
-    .main-title {
-        font-size: 4.5em;
-    }
-    
-    .main-subtitle {
-        font-size: 2.2em;
-    }
-}
-
-@media (max-width: 1400px) {
-    .header-container {
-        gap: 80px;
-        max-width: 1200px;
-    }
-    
-    .artist-photo {
-        width: 700px;
-        height: 700px;
-    }
-    
-    .main-title {
-        font-size: 4em;
-    }
-    
-    .main-subtitle {
-        font-size: 2em;
-    }
-    
-    .artist-description {
-        font-size: 1.6em;
-    }
-}
-
-@media (max-width: 1200px) {
-    .artist-photo {
-        width: 600px;
-        height: 600px;
-    }
-    
-    .main-title {
-        font-size: 3.8em;
-    }
-    
-    .main-subtitle {
-        font-size: 1.9em;
-    }
-}
-
-@media (max-width: 1024px) {
-    .main-header {
-        padding: 70px 15px;
-    }
-    
-    .header-container {
-        gap: 60px;
-        max-width: 1000px;
-    }
-    
-    .artist-photo {
-        width: 500px;
-        height: 500px;
-    }
-    
-    .main-title {
-        font-size: 3.5em;
-    }
-    
-    .main-subtitle {
-        font-size: 1.8em;
-    }
-    
-    .artist-description {
-        font-size: 1.4em;
-    }
-    
-    .price-section {
-        max-width: 1000px;
-    }
-}
-
-@media (max-width: 900px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 50px;
-    }
-    
-    .header-content {
-        text-align: center;
-        min-width: auto;
-        order: 2;
-    }
-    
-    .artist-photo {
-        width: 450px;
-        height: 450px;
-        order: 1;
-    }
-    
-    .main-title {
-        font-size: 3.2em;
-    }
-    
-    .main-subtitle {
-        font-size: 1.6em;
-    }
-    
-    .artist-description {
-        font-size: 1.2em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-header {
-        padding: 60px 15px;
-    }
-    
-    .artist-photo {
-        width: 400px;
-        height: 400px;
-    }
-    
-    .main-title {
-        font-size: 2.8em;
-    }
-    
-    .main-subtitle {
-        font-size: 1.5em;
-    }
-    
-    .artist-description {
-        font-size: 1.1em;
-    }
-    
-    .price-title {
-        font-size: 2.8em;
-    }
-    
-    .price-subtitle {
-        font-size: 1.4em;
-    }
-    
-    .price-cards {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .price-card {
-        padding: 30px;
-    }
-    
-    .price-card-featured::before {
-        font-size: 0.8em;
-        right: -30px;
-        top: 15px;
-    }
-    
-    .slideshow-container,
-    .video-demo {
-        max-width: 300px;
-    }
-    
-    .slideshow {
-        min-height: 220px;
-    }
-    
-    .demo-video {
-        height: 220px;
-    }
-    
-    .fullscreen-nav {
-        width: 55px;
-        height: 55px;
-        font-size: 28px;
-    }
-    
-    .fullscreen-prev {
-        left: 20px;
-    }
-    
-    .fullscreen-next {
-        right: 20px;
-    }
-    
-    .fullscreen-close {
-        top: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 32px;
-    }
-    
-    .social-links a {
-        display: block;
-        margin: 15px auto;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .artist-photo {
-        width: 350px;
-        height: 350px;
-    }
-    
-    .main-title {
-        font-size: 2.5em;
-    }
-    
-    .main-subtitle {
-        font-size: 1.3em;
-    }
-    
-    .artist-description {
-        font-size: 1em;
-    }
-    
-    .price-badge {
-        font-size: 1.6em;
-        padding: 12px 28px;
-    }
-    
-    .price-card-header h3 {
-        font-size: 1.9em;
-    }
-    
-    .slideshow-container,
-    .video-demo {
-        max-width: 100%;
-    }
-    
-    .slideshow {
-        min-height: 200px;
-    }
-    
-    .demo-video {
-        height: 200px;
-    }
-}
-
-@media (max-width: 400px) {
-    .artist-photo {
-        width: 300px;
-        height: 300px;
-    }
-    
-    .main-title {
-        font-size: 2.2em;
-    }
-    
-    .main-subtitle {
-        font-size: 1.2em;
-    }
+.btn-social:hover {
+    transform: scale(1.05);
+    background: #0069d9;
 }
