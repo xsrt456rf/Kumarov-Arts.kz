@@ -9,7 +9,9 @@
         body {
             margin: 0; padding: 0;
             background: radial-gradient(circle at top, #1c3654 0%, #060b13 100%);
-            color: white; font-family: 'Arial Black', sans-serif;
+            color: white; 
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+            font-weight: 900;
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
@@ -28,11 +30,25 @@
             color: white; 
             text-decoration: none; 
             font-size: 14px; 
-            font-weight: bold; 
+            font-weight: 900; 
             text-transform: uppercase; 
             transition: color 0.3s, transform 0.2s;
             padding: 5px 10px;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
         }
+        
+        @media (max-width: 768px) {
+            .nav a {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav a {
+                font-size: 12px;
+            }
+        }
+        
         .nav a:hover { 
             color: #008cff; 
             transform: translateY(-2px);
@@ -93,6 +109,8 @@
             color: #008cff; 
             margin: 0 0 10px 0; 
             line-height: 1;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+            font-weight: 900;
         }
         
         @media (min-width: 768px) {
@@ -101,14 +119,28 @@
             }
         }
         
-        .hero-text p {
-            font-size: 14px;
-            margin: 5px 0;
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 36px;
+            }
         }
         
-        @media (min-width: 768px) {
+        .hero-text p {
+            font-size: 16px;
+            margin: 5px 0;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+            font-weight: 900;
+        }
+        
+        @media (max-width: 768px) {
             .hero-text p {
-                font-size: 16px;
+                font-size: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-text p {
+                font-size: 14px;
             }
         }
 
@@ -119,12 +151,20 @@
             margin: 40px 0 30px;
             text-align: center;
             padding: 0 15px;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+            font-weight: 900;
         }
         
         @media (min-width: 768px) {
             .section-title {
                 font-size: 38px;
                 margin: 50px 0 35px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 26px;
             }
         }
         
@@ -173,11 +213,19 @@
         .card h3 {
             font-size: 18px;
             margin: 0 0 15px 0;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+            font-weight: 900;
         }
         
         @media (min-width: 768px) {
             .card h3 {
                 font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card h3 {
+                font-size: 17px;
             }
         }
 
@@ -238,15 +286,23 @@
             border-radius: 8px; 
             font-weight: 900;
             transition: background 0.3s, color 0.3s;
-            font-size: 14px;
+            font-size: 16px;
             display: inline-block;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
         }
         
         @media (min-width: 768px) {
             .price-tag {
                 padding: 10px 25px;
                 border-radius: 10px;
-                font-size: 16px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .price-tag {
+                font-size: 15px;
+                padding: 7px 12px;
             }
         }
         
@@ -259,16 +315,24 @@
         .footer-info { 
             max-width: 850px; 
             text-align: left; 
-            font-size: 13px; 
+            font-size: 14px; 
             margin: 30px 15px; 
             line-height: 1.5;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+            font-weight: 900;
         }
         
         @media (min-width: 768px) {
             .footer-info {
-                font-size: 14px;
+                font-size: 15px;
                 margin: 40px auto;
                 line-height: 1.6;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-info {
+                font-size: 13px;
             }
         }
         
@@ -310,7 +374,7 @@
             max-width: 240px;
             height: 50px;
             border-radius: 10px; 
-            font-weight: bold; 
+            font-weight: 900; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -318,7 +382,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            font-size: 14px;
+            font-size: 15px;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
         }
         
         @media (min-width: 768px) {
@@ -328,6 +393,13 @@
                 border-radius: 12px;
                 gap: 10px;
                 font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .soc-btn {
+                height: 48px;
+                font-size: 14px;
             }
         }
         
@@ -382,6 +454,13 @@
             .soc-btn img {
                 width: 28px;
                 height: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .soc-btn img {
+                width: 22px;
+                height: 22px;
             }
         }
         
@@ -493,6 +572,7 @@
             justify-content: center;
             transition: background 0.3s;
             touch-action: manipulation;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
         }
         
         @media (min-width: 768px) {
@@ -552,8 +632,10 @@
             color: white;
             padding: 6px 12px;
             border-radius: 15px;
-            font-size: 12px;
+            font-size: 13px;
             z-index: 1001;
+            font-family: 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+            font-weight: 900;
         }
         
         @media (min-width: 768px) {
@@ -565,29 +647,13 @@
             }
         }
         
-        /* Скрываем ненужные элементы на очень маленьких экранах */
-        @media (max-width: 360px) {
-            .nav a {
-                font-size: 12px;
-                padding: 4px 8px;
-            }
-            
-            .hero-text h1 {
-                font-size: 32px;
-            }
-            
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .soc-btn {
-                font-size: 12px;
-                height: 45px;
-            }
-            
-            .soc-btn img {
-                width: 20px;
-                height: 20px;
+        /* Дополнительные стили для лучшей поддержки шрифтов */
+        @media (max-width: 767px) {
+            body, .nav a, .hero-text h1, .hero-text p, 
+            .section-title, .card h3, .price-tag,
+            .footer-info, .soc-btn, .zoom-btn, .zoom-indicator {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
         }
     </style>
@@ -604,7 +670,7 @@
     <div class="hero-text">
         <h1>KUMAROV-ARTS</h1>
         <p>РИСУЕМ АРТЫ ПО ВАШЕМУ ЗАПРОСУ В НАШЕМ СТИЛЕ!</p>
-        <p style="font-size: 14px; opacity: 0.8;">ПРИ ПЕРВОМ ЗАКАЗЕ — ВТОРОЙ АРТ В ПОДАРОК!</p>
+        <p style="opacity: 0.8;">ПРИ ПЕРВОМ ЗАКАЗЕ — ВТОРОЙ АРТ В ПОДАРОК!</p>
     </div>
 </div>
 
@@ -739,11 +805,9 @@
         translateY = 0;
         updateTransform();
         
-        // Для десктопов
         element.addEventListener('mousedown', startDrag);
         element.addEventListener('wheel', handleWheel, { passive: false });
         
-        // Для мобильных
         element.addEventListener('touchstart', handleTouchStart, { passive: false });
         element.addEventListener('touchmove', handleTouchMove, { passive: false });
         element.addEventListener('touchend', handleTouchEnd);
@@ -762,16 +826,13 @@
         e.preventDefault();
     }
     
-    // Мультитач для масштабирования на мобильных
     let initialDistance = null;
     
     function handleTouchStart(e) {
         if (e.touches.length === 2) {
-            // Два пальца - масштабирование
             initialDistance = getDistance(e.touches[0], e.touches[1]);
             e.preventDefault();
         } else if (e.touches.length === 1 && currentZoom > 1) {
-            // Один палец - перетаскивание
             isDragging = true;
             const touch = e.touches[0];
             startX = touch.clientX - translateX;
@@ -782,7 +843,6 @@
     
     function handleTouchMove(e) {
         if (e.touches.length === 2 && initialDistance !== null) {
-            // Масштабирование двумя пальцами
             const currentDistance = getDistance(e.touches[0], e.touches[1]);
             const scaleChange = (currentDistance - initialDistance) / 100;
             
@@ -792,7 +852,6 @@
             }
             e.preventDefault();
         } else if (e.touches.length === 1 && isDragging) {
-            // Перетаскивание
             const touch = e.touches[0];
             translateX = touch.clientX - startX;
             translateY = touch.clientY - startY;
@@ -902,7 +961,6 @@
         }
     });
     
-    // Закрытие модального окна при клике вне изображения
     document.getElementById('modal').addEventListener('click', function(e) {
         if (e.target === this) {
             closeModal(e);
