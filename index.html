@@ -12,10 +12,18 @@
             color: white; font-family: 'Arial Black', sans-serif;
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Навигация */
-        .nav { margin: 25px 0; display: flex; gap: 30px; }
+        /* Навигация - адаптивная */
+        .nav { 
+            margin: 20px 0; 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 15px;
+        }
         .nav a { 
             color: white; 
             text-decoration: none; 
@@ -23,45 +31,197 @@
             font-weight: bold; 
             text-transform: uppercase; 
             transition: color 0.3s, transform 0.2s;
+            padding: 5px 10px;
         }
         .nav a:hover { 
             color: #008cff; 
             transform: translateY(-2px);
         }
 
-        /* Главный блок */
-        .hero { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1100px; margin-top: 10px; }
-        .hero-img { width: 520px; flex-shrink: 0; z-index: 1; }
-        .hero-text { margin-left: -70px; z-index: 2; text-align: left; }
-        .hero-text h1 { font-size: 65px; color: #008cff; margin: 0; line-height: 1; }
+        /* Главный блок - адаптивный */
+        .hero { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 100%; 
+            max-width: 1100px; 
+            margin-top: 10px;
+            padding: 0 20px;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+                padding: 0;
+            }
+        }
+        
+        .hero-img { 
+            width: 100%;
+            max-width: 400px;
+            flex-shrink: 0; 
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-img {
+                width: 520px;
+                max-width: none;
+                margin-bottom: 0;
+            }
+        }
+        
+        .hero-text { 
+            text-align: center;
+            z-index: 2; 
+            margin-left: 0;
+            padding: 0 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-text {
+                text-align: left;
+                margin-left: -70px;
+                padding: 0;
+            }
+        }
+        
+        .hero-text h1 { 
+            font-size: 40px; 
+            color: #008cff; 
+            margin: 0 0 10px 0; 
+            line-height: 1;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-text h1 {
+                font-size: 65px;
+            }
+        }
+        
+        .hero-text p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-text p {
+                font-size: 16px;
+            }
+        }
 
-        /* Сетка работ */
-        .section-title { font-size: 38px; color: #008cff; margin: 50px 0 35px; }
-        .grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; }
+        /* Сетка работ - адаптивная */
+        .section-title { 
+            font-size: 28px; 
+            color: #008cff; 
+            margin: 40px 0 30px;
+            text-align: center;
+            padding: 0 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 38px;
+                margin: 50px 0 35px;
+            }
+        }
+        
+        .grid { 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            width: 100%;
+            padding: 0 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         
         .card {
             background: linear-gradient(180deg, #007bff 0%, #004da1 100%);
-            width: 300px; padding: 25px 15px; border-radius: 20px; text-align: center;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px 15px; 
+            border-radius: 15px; 
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
         }
+        
+        @media (min-width: 480px) {
+            .card {
+                width: calc(50% - 10px);
+                max-width: none;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .card {
+                width: 300px;
+                padding: 25px 15px;
+                border-radius: 20px;
+            }
+        }
+        
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 140, 255, 0.3);
         }
+        
+        .card h3 {
+            font-size: 18px;
+            margin: 0 0 15px 0;
+        }
+        
+        @media (min-width: 768px) {
+            .card h3 {
+                font-size: 20px;
+            }
+        }
 
         /* Контейнер слайд-шоу */
         .slideshow {
-            background: #000; width: 100%; height: 180px; 
-            border-radius: 12px; margin-bottom: 20px; overflow: hidden; 
-            position: relative; cursor: pointer; border: 1px solid rgba(255,255,255,0.1);
+            background: #000; 
+            width: 100%; 
+            height: 150px; 
+            border-radius: 10px; 
+            margin-bottom: 15px; 
+            overflow: hidden; 
+            position: relative; 
+            cursor: pointer; 
+            border: 1px solid rgba(255,255,255,0.1);
         }
+        
+        @media (min-width: 768px) {
+            .slideshow {
+                height: 180px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+            }
+        }
+        
         .slideshow img, .slideshow video {
-            width: 100%; height: 100%; object-fit: contain;
-            position: absolute; left: 0; top: 0; opacity: 0;
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain;
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            opacity: 0;
             animation: fadeAnim 8s infinite;
         }
-        .slideshow video { opacity: 1; animation: none; position: relative; }
-        .slideshow img:nth-child(2) { animation-delay: 4s; }
+        
+        .slideshow video { 
+            opacity: 1; 
+            animation: none; 
+            position: relative; 
+        }
+        
+        .slideshow img:nth-child(2) { 
+            animation-delay: 4s; 
+        }
 
         @keyframes fadeAnim {
             0% { opacity: 0; }
@@ -74,39 +234,113 @@
         .price-tag { 
             background: white; 
             color: #0066cc; 
-            padding: 10px 25px; 
-            border-radius: 10px; 
+            padding: 8px 15px; 
+            border-radius: 8px; 
             font-weight: 900;
             transition: background 0.3s, color 0.3s;
+            font-size: 14px;
+            display: inline-block;
         }
+        
+        @media (min-width: 768px) {
+            .price-tag {
+                padding: 10px 25px;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+        }
+        
         .card:hover .price-tag {
             background: #0066cc;
             color: white;
         }
 
         /* Футер текста */
-        .footer-info { max-width: 850px; text-align: left; font-size: 14px; margin: 40px 0; line-height: 1.6; }
-        .info-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .footer-info { 
+            max-width: 850px; 
+            text-align: left; 
+            font-size: 13px; 
+            margin: 30px 15px; 
+            line-height: 1.5;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-info {
+                font-size: 14px;
+                margin: 40px auto;
+                line-height: 1.6;
+            }
+        }
+        
+        .info-row { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px; 
+            margin-bottom: 10px;
+        }
+        
+        .info-row span:first-child {
+            flex-shrink: 0;
+        }
 
-        /* Кнопки соцсетей */
-        .social-container { display: flex; gap: 20px; margin-bottom: 60px; }
+        /* Кнопки соцсетей - адаптивные */
+        .social-container { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 15px;
+            width: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .social-container {
+                gap: 20px;
+                margin-bottom: 60px;
+                flex-wrap: nowrap;
+            }
+        }
+        
         .soc-btn {
             background: linear-gradient(180deg, #007bff 0%, #004da1 100%);
-            color: white; text-decoration: none; width: 240px; height: 55px;
-            border-radius: 12px; font-weight: bold; display: flex; 
-            align-items: center; justify-content: center; gap: 10px;
+            color: white; 
+            text-decoration: none; 
+            width: 100%;
+            max-width: 240px;
+            height: 50px;
+            border-radius: 10px; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            font-size: 14px;
         }
+        
+        @media (min-width: 768px) {
+            .soc-btn {
+                width: 240px;
+                height: 55px;
+                border-radius: 12px;
+                gap: 10px;
+                font-size: 16px;
+            }
+        }
+        
         .soc-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 140, 255, 0.4);
             background: linear-gradient(180deg, #008cff 0%, #0056b3 100%);
         }
+        
         .soc-btn:active {
             transform: translateY(-2px);
         }
+        
         /* Эффект "вспышка" при наведении */
         .soc-btn::after {
             content: '';
@@ -121,6 +355,7 @@
             transform: scale(1, 1) translate(-50%);
             transform-origin: 50% 50%;
         }
+        
         .soc-btn:hover::after {
             animation: ripple 1s ease-out;
         }
@@ -138,19 +373,28 @@
         
         /* Иконки соцсетей */
         .soc-btn img { 
-            width: 28px; 
-            height: 28px; 
+            width: 24px; 
+            height: 24px; 
             transition: transform 0.3s ease;
         }
+        
+        @media (min-width: 768px) {
+            .soc-btn img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
         .soc-btn:hover img {
             transform: scale(1.1);
         }
+        
         /* Только для TikTok делаем белую иконку */
         .soc-btn:nth-child(2) img {
             filter: brightness(0) invert(1);
         }
 
-        /* МОДАЛЬНОЕ ОКНО (Full Screen View) */
+        /* МОДАЛЬНОЕ ОКНО (Full Screen View) - адаптивное */
         #modal {
             display: none; 
             position: fixed; 
@@ -165,6 +409,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+        
         #modal.show {
             opacity: 1;
         }
@@ -177,16 +422,29 @@
             justify-content: center;
             align-items: center;
             touch-action: none;
+            padding: 20px;
+            box-sizing: border-box;
         }
         
         #modalContent { 
-            max-width: 90%; 
-            max-height: 90%; 
-            border-radius: 10px; 
-            box-shadow: 0 0 30px #008cff;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px; 
+            box-shadow: 0 0 20px #008cff;
             transform-origin: center center;
             transition: transform 0.2s ease;
             cursor: grab;
+        }
+        
+        @media (min-width: 768px) {
+            #modalContent {
+                max-width: 90%;
+                max-height: 90%;
+                border-radius: 10px;
+                box-shadow: 0 0 30px #008cff;
+            }
         }
         
         #modalContent:active {
@@ -200,31 +458,49 @@
         /* Элементы управления масштабированием */
         .zoom-controls {
             position: absolute;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 15px;
+            gap: 10px;
             background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 8px 15px;
+            border-radius: 40px;
             z-index: 1001;
+        }
+        
+        @media (min-width: 768px) {
+            .zoom-controls {
+                bottom: 30px;
+                gap: 15px;
+                padding: 10px 20px;
+                border-radius: 50px;
+            }
         }
         
         .zoom-btn {
             background: #008cff;
             color: white;
             border: none;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background 0.3s;
+            touch-action: manipulation;
+        }
+        
+        @media (min-width: 768px) {
+            .zoom-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+            }
         }
         
         .zoom-btn:hover {
@@ -233,21 +509,33 @@
         
         #closeModal { 
             position: absolute; 
-            top: 20px; 
-            right: 30px; 
-            font-size: 40px; 
+            top: 15px; 
+            right: 15px; 
+            font-size: 35px; 
             cursor: pointer; 
             color: white;
             transition: color 0.3s, transform 0.3s;
             z-index: 1001;
             background: rgba(0, 0, 0, 0.5);
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            touch-action: manipulation;
         }
+        
+        @media (min-width: 768px) {
+            #closeModal {
+                top: 20px;
+                right: 30px;
+                font-size: 40px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
         #closeModal:hover {
             color: #008cff;
             transform: rotate(90deg);
@@ -257,15 +545,50 @@
         /* Индикатор масштаба */
         .zoom-indicator {
             position: absolute;
-            top: 20px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.7);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
             z-index: 1001;
+        }
+        
+        @media (min-width: 768px) {
+            .zoom-indicator {
+                top: 20px;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 14px;
+            }
+        }
+        
+        /* Скрываем ненужные элементы на очень маленьких экранах */
+        @media (max-width: 360px) {
+            .nav a {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+            
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .soc-btn {
+                font-size: 12px;
+                height: 45px;
+            }
+            
+            .soc-btn img {
+                width: 20px;
+                height: 20px;
+            }
         }
     </style>
 </head>
@@ -323,12 +646,10 @@
 
 <div id="contact" class="social-container">
     <a href="https://www.instagram.com/kumarov_arts/" target="_blank" class="soc-btn">
-        <!-- ВЕРНУЛ ИСХОДНУЮ иконку Instagram из вашего первого кода -->
         <img src="https://www.svgrepo.com/show/303145/instagram-2-1-logo.svg" alt="Instagram">
         INSTAGRAM
     </a>
     <a href="https://www.tiktok.com/@kumarov_arts3" target="_blank" class="soc-btn">
-        <!-- Старая иконка TikTok -->
         <img src="https://www.svgrepo.com/show/333611/tiktok.svg" alt="TikTok">
         TIK TOK
     </a>
@@ -418,9 +739,14 @@
         translateY = 0;
         updateTransform();
         
+        // Для десктопов
         element.addEventListener('mousedown', startDrag);
-        element.addEventListener('touchstart', startDragTouch);
         element.addEventListener('wheel', handleWheel, { passive: false });
+        
+        // Для мобильных
+        element.addEventListener('touchstart', handleTouchStart, { passive: false });
+        element.addEventListener('touchmove', handleTouchMove, { passive: false });
+        element.addEventListener('touchend', handleTouchEnd);
     }
     
     function startDrag(e) {
@@ -436,18 +762,54 @@
         e.preventDefault();
     }
     
-    function startDragTouch(e) {
-        if (currentZoom <= 1) return;
-        
-        isDragging = true;
-        const touch = e.touches[0];
-        startX = touch.clientX - translateX;
-        startY = touch.clientY - translateY;
-        
-        document.addEventListener('touchmove', dragTouch);
-        document.addEventListener('touchend', stopDrag);
-        
-        e.preventDefault();
+    // Мультитач для масштабирования на мобильных
+    let initialDistance = null;
+    
+    function handleTouchStart(e) {
+        if (e.touches.length === 2) {
+            // Два пальца - масштабирование
+            initialDistance = getDistance(e.touches[0], e.touches[1]);
+            e.preventDefault();
+        } else if (e.touches.length === 1 && currentZoom > 1) {
+            // Один палец - перетаскивание
+            isDragging = true;
+            const touch = e.touches[0];
+            startX = touch.clientX - translateX;
+            startY = touch.clientY - translateY;
+            e.preventDefault();
+        }
+    }
+    
+    function handleTouchMove(e) {
+        if (e.touches.length === 2 && initialDistance !== null) {
+            // Масштабирование двумя пальцами
+            const currentDistance = getDistance(e.touches[0], e.touches[1]);
+            const scaleChange = (currentDistance - initialDistance) / 100;
+            
+            if (Math.abs(scaleChange) > 0.05) {
+                changeZoom(scaleChange * 0.5);
+                initialDistance = currentDistance;
+            }
+            e.preventDefault();
+        } else if (e.touches.length === 1 && isDragging) {
+            // Перетаскивание
+            const touch = e.touches[0];
+            translateX = touch.clientX - startX;
+            translateY = touch.clientY - startY;
+            updateTransform();
+            e.preventDefault();
+        }
+    }
+    
+    function handleTouchEnd() {
+        isDragging = false;
+        initialDistance = null;
+    }
+    
+    function getDistance(touch1, touch2) {
+        const dx = touch1.clientX - touch2.clientX;
+        const dy = touch1.clientY - touch2.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
     }
     
     function drag(e) {
@@ -458,21 +820,10 @@
         updateTransform();
     }
     
-    function dragTouch(e) {
-        if (!isDragging) return;
-        
-        const touch = e.touches[0];
-        translateX = touch.clientX - startX;
-        translateY = touch.clientY - startY;
-        updateTransform();
-    }
-    
     function stopDrag() {
         isDragging = false;
         document.removeEventListener('mousemove', drag);
         document.removeEventListener('mouseup', stopDrag);
-        document.removeEventListener('touchmove', dragTouch);
-        document.removeEventListener('touchend', stopDrag);
     }
     
     function handleWheel(e) {
@@ -548,6 +899,13 @@
             if (modal.style.display === 'flex') {
                 closeModal({target: {id: 'modal'}});
             }
+        }
+    });
+    
+    // Закрытие модального окна при клике вне изображения
+    document.getElementById('modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal(e);
         }
     });
     
